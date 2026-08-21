@@ -32,13 +32,11 @@ cat << 'EOF' > index.html
     <header class="header-container">
         <div class="top-control-grid">
             
-            <!-- Tension Trigger -->
+            <!-- To be used -->
             <button id="btn-tele-tension" title="Cohesion / Tension" class="btn-tele-glass tele-btn-left">
-                <span id="sub-reps-tension" class="tele-num-val">0.0</span>
-                <span class="tele-unit-label">N</span>
             </button>
 
-<!-- Center Dial Logo -->
+            <!-- Center Logo -->
             <button id="btn-tele-dial" title="Biokinetic Telemetry" class="btn-tele-glass tele-btn-center">
                 <svg viewBox="0 0 100 100" class="icon-tele">
                     <polygon points="20,20 80,20 70,35 30,35" />
@@ -47,19 +45,15 @@ cat << 'EOF' > index.html
                 </svg>
             </button>
 
-            <!-- Resonate Frequency Trigger -->
+            <!-- To be used -->
             <button id="btn-tele-hz" title="Resonant Frequency" class="btn-tele-glass tele-btn-right">
-                <span id="sub-sets-solar" class="tele-num-val">0.00</span>
-                <span class="tele-unit-label">Hz</span>
             </button>
 
         </div>
 
-        <!-- Telemetry Data Sub-Bar -->
+        <!-- To be used -->
         <div class="sub-header-bar">
-            <span id="panel-telemetry-data" class="telemetry-readout-text">
-                REGENERATIVE BIOKINETIC WAVES
-            </span>
+ 
         </div>
     </header>
 
@@ -68,10 +62,9 @@ cat << 'EOF' > index.html
         <div id="zenergy-pack-container">
             <div class="pack-viewport">
                 
-                <!-- Progressive Image Stack -->
+                <!-- Progressive Image Stack (Dual Layer) -->
                 <img id="zenergy-pack-img-back" src="img/44mane.png" alt="Zenergy Pack Back" class="img-glow-transition" style="opacity: 0; pointer-events: none; z-index: 0;" />
                 <img id="zenergy-pack-img" src="img/44caps.png" alt="Zenergy Pack Front" class="img-glow-transition" style="opacity: 1; pointer-events: auto; z-index: 10;" />
-                <img id="zenergy-pack-img-raw" src="" alt="Raw Content" class="img-glow-transition" style="opacity: 0; pointer-events: none; z-index: 5;" />
                 
                 <!-- Tactical Mesh and Vector Overlay -->
                 <div class="vector-overlay-layer">
@@ -93,26 +86,22 @@ cat << 'EOF' > index.html
 
                         <!-- Sandwatch Group Mode -->
                         <g id="sandwatch-group" style="display: none; transform-origin: center; transform: scale(0.85); transition: all 0.5s ease;">
-<g id="sandwatch-lines" style="transform-origin: 200px 200px;">
-    
-    <!-- CIRCLE 1: HORIZONTAL EQUATORIAL RING (HEART / BLOOD FIRE / SUN) -->
-    <g id="sphere-ring-equator" style="transform-origin: 200px 200px; transition: transform 0.1s linear;">
-        <!-- Path 1: SUN (Solar Corona Upper Arc) -->
-        <path d="M 110,200 A 90,45 0 0,1 290,200" stroke="#ffffff" stroke-width="2.1" opacity="0.8" fill="none" stroke-linecap="round" />
-        <!-- Path 2: MOON (Lunar Focal Lower Arc) -->
-        <path d="M 110,200 A 90,45 0 0,0 290,200" stroke="#38bdf8" stroke-width="1.8" opacity="0.5" fill="none" stroke-dasharray="6 3" stroke-linecap="round" />
-    </g>
+                            <g id="sandwatch-lines" style="transform-origin: 200px 200px;">
+                                <!-- CIRCLE 1: HORIZONTAL EQUATORIAL RING (HEART / BLOOD FIRE / SUN) -->
+                                <g id="sphere-ring-equator" style="transform-origin: 200px 200px; transition: transform 0.1s linear;">
+                                    <path d="M 110,200 A 90,45 0 0,1 290,200" stroke="#ffffff" stroke-width="2.1" opacity="0.8" fill="none" stroke-linecap="round" />
+                                    <path d="M 110,200 A 90,45 0 0,0 290,200" stroke="#38bdf8" stroke-width="1.8" opacity="0.5" fill="none" stroke-dasharray="6 3" stroke-linecap="round" />
+                                </g>
 
-    <!-- CIRCLE 2: VERTICAL MERIDIAN RING (BRAIN / LIGHT REFRACTION / GRAVITY) -->
-    <g id="sphere-ring-meridian" style="transform-origin: 200px 200px; transition: transform 0.1s linear;">
-        <!-- Path 3: GRAVITY (Tension Horizon Field - Full Orbital Loop) -->
-        <path d="M 200,110 A 45,90 0 0,1 200,290 M 200,110 A 45,90 0 0,0 200,290" stroke="#ffffff" stroke-width="1.4" opacity="0.45" fill="none" stroke-dasharray="2 3" />
-    </g>
+                                <!-- CIRCLE 2: VERTICAL MERIDIAN RING (BRAIN / LIGHT REFRACTION / GRAVITY) -->
+                                <g id="sphere-ring-meridian" style="transform-origin: 200px 200px; transition: transform 0.1s linear;">
+                                    <path d="M 200,110 A 45,90 0 0,1 200,290 M 200,110 A 45,90 0 0,0 200,290" stroke="#ffffff" stroke-width="1.4" opacity="0.45" fill="none" stroke-dasharray="2 3" />
+                                </g>
 
-    <!-- PHOTONIC RECOVERY CORE (Central Refraction Point) -->
-    <circle cx="200" cy="200" r="3" fill="#38bdf8" opacity="0.7" />
-</g>
-                            <text id="z-dial-pack" x="200" y="210" text-anchor="middle" fill="#ffffff" font-weight="900" font-size="28" letter-spacing="0.4em" font-family="'Orbitron', sans-serif">8UST11</text>
+                                <!-- PHOTONIC RECOVERY CORE -->
+                                <circle cx="200" cy="200" r="3" fill="#38bdf8" opacity="0.7" />
+                            </g>
+                            <text id="z-dial-pack" x="200" y="210" text-anchor="middle" fill="#ffffff" font-weight="900" font-size="28" letter-spacing="0.4em" font-family="'Orbitron', sans-serif"></text>
                         </g>
                         
                         <!-- Curved Bottom Descriptor -->
@@ -133,14 +122,14 @@ cat << 'EOF' > index.html
         <div class="info-strip-content">
             <span id="zenergy-label">BIORUSH PULSOR FOCUS</span>
             <span style="opacity: 0.7;">|</span>
-            <span id="zenergy-price">$70.000</span>
+            <span id="zenergy-price">$70MIL</span>
         </div>
     </div>
 
-    <!-- Actions & Direct WhatsApp Dispatcher Grid -->
+    <!-- Actions & Dispatcher Grid -->
     <div class="action-controls-grid">
 
-        <!-- Inspect / Reveal Mode -->
+        <!-- Inspect / Reveal Mode (2-State Toggle: Front / Back) -->
         <button id="btn-reveal-bio" title="Inspect" class="btn-tele-glass tele-btn-left">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="icon-stroke">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
@@ -148,7 +137,7 @@ cat << 'EOF' > index.html
             </svg>
         </button>
 
-        <!-- BUTTON FOR NEXT ACTION STRATEGY -->
+        <!-- Center Action Strategy Trigger -->
         <button title="NEXT-ACTION" class="btn-tele-glass tele-btn-center">
             <svg viewBox="0 0 100 100" class="icon-tele">
                 <polygon points="50,42 58,50 50,58 42,50" />
@@ -530,25 +519,25 @@ const ZENERGY_CATALOG = {
             'FOCUS': { 
                 label: 'BIORUSH PULSOR FOCUS', desc: 'Enfoque y claridad cognitiva', 
                 spec: 'LION’S MANE', cant: '44X500MGRS', price: '$70MIL', id: 'FOCUS45',
-                img: 'img/44caps.png', imgBack: 'img/44mane.png', imgRaw: 'img/maneRaw.png',
+                img: 'img/44caps.png', imgBack: 'img/44mane.png',
                 telemetry: { COL: '24°', FRU: '18°', SEC: '40°', MOL: '98.2%' }
             },
             'ZEN': { 
                 label: 'BIORUSH PULSOR ZEN', desc: 'Silencio mental óptimo', 
                 spec: 'REISHI', cant: '44X500MGRS', price: '$70MIL', id: 'ZEN45',
-                img: 'img/44caps.png', imgBack: 'img/44reishi.png', imgRaw: 'img/reishiRaw.png',
+                img: 'img/44caps.png', imgBack: 'img/44reishi.png',
                 telemetry: { COL: '22°', FRU: '16°', SEC: '38°', MOL: '97.5' }
             },
             'STAMINA': { 
                 label: 'BIORUSH PULSOR STAMINA', desc: 'Potencia celular óptima', 
                 spec: 'CORDYCEPS', cant: '44X500MGRS', price: '$70MIL', id: 'CORDY45',
-                img: 'img/44caps.png', imgBack: 'img/44cordy.png', imgRaw: 'img/cordyRaw.png',
+                img: 'img/44caps.png', imgBack: 'img/44cordy.png',
                 telemetry: { COL: '20°', FRU: '15°', SEC: '42°', MOL: '99.0' }
             },
             'CORE': { 
                 label: 'BIORUSH PULSOR CORE', desc: 'Respuesta inmune óptima', 
                 spec: 'TURKEY TAIL', cant: '44X500MGRS', price: '$70MIL', id: 'CORE45',
-                img: 'img/44caps.png', imgBack: 'img/44turkey.png', imgRaw: 'img/turkeyRaw.png',
+                img: 'img/44caps.png', imgBack: 'img/44turkey.png',
                 telemetry: { COL: '23°', FRU: '19°', SEC: '40°', MOL: '98.5' }
             }
         }
@@ -558,9 +547,7 @@ const ZENERGY_CATALOG = {
 // State Machine Globals
 let currentBioItem = 'BIORUSH';
 let currentBioVariant = 'FOCUS';
-const targetPhoneNumber = "573025333130";
-let currentSphereIdx = "0000";
-let inspectModeIndex = 0; 
+let inspectModeIndex = 0; // 0 = front, 1 = back
 
 // Element Cache Map
 const $ = (id) => document.getElementById(id);
@@ -582,42 +569,24 @@ const triggerHaptic = (ms) => {
 };
 
 /**
- * Visual Inspector Switching (Front, Back, Raw)
- * @param {string} mode Mode identifier
+ * Visual Inspector Switching (Dual Mode: Front / Back)
+ * @param {string} mode Mode identifier ('front' | 'back')
  */
 function applyVisualMode(mode) {
     const front = getCachedEl('zenergy-pack-img');
     const back = getCachedEl('zenergy-pack-img-back');
-    const raw = getCachedEl('zenergy-pack-img-raw');
     const svg = getCachedEl('laser-vector-target');
 
-    [front, back, raw].forEach(el => { if(el) el.style.opacity = '0'; });
-    
     if (mode === 'front') {
         inspectModeIndex = 0;
-        front.style.opacity = '1';
-        front.style.zIndex = '10';
-        back.style.zIndex = '0';
-        if (svg) { 
-            svg.style.opacity = '1'; 
-            svg.style.pointerEvents = 'auto'; 
-        }
-    } else if (mode === 'back') {
+        if (front) { front.style.opacity = '1'; front.style.zIndex = '10'; }
+        if (back) { back.style.opacity = '0'; back.style.zIndex = '0'; }
+        if (svg) { svg.style.opacity = '1'; svg.style.pointerEvents = 'auto'; }
+    } else {
         inspectModeIndex = 1;
-        back.style.opacity = '1';
-        back.style.zIndex = '10';
-        front.style.zIndex = '0';
-        if (svg) { 
-            svg.style.opacity = '0'; 
-            svg.style.pointerEvents = 'none'; 
-        }
-    } else if (mode === 'raw') {
-        inspectModeIndex = 2;
-        raw.style.opacity = '1';
-        if (svg) { 
-            svg.style.opacity = '0'; 
-            svg.style.pointerEvents = 'none'; 
-        }
+        if (back) { back.style.opacity = '1'; back.style.zIndex = '10'; }
+        if (front) { front.style.opacity = '0'; front.style.zIndex = '0'; }
+        if (svg) { svg.style.opacity = '0'; svg.style.pointerEvents = 'none'; }
     }
 }
 
@@ -626,7 +595,7 @@ function applyVisualMode(mode) {
  */
 function bindControls() {
     const btnBio = getCachedEl('btn-reveal-bio');
-    const modes = ['front', 'back', 'raw'];
+    const modes = ['front', 'back'];
 
     if (btnBio && !btnBio.dataset.bound) {
         btnBio.dataset.bound = "true";
@@ -681,7 +650,9 @@ function updateBioUI() {
     const packImg = getCachedEl('zenergy-pack-img');
     const packImgBack = getCachedEl('zenergy-pack-img-back');
     const zenergyLabel = getCachedEl('zenergy-label');
-    
+    const labelTitle = getCachedEl('laser-variant-title');
+    const priceEl = getCachedEl('zenergy-price');
+
     if (descEl && packImg && packImgBack) {
         descEl.style.opacity = '0';
         
@@ -689,13 +660,10 @@ function updateBioUI() {
             descEl.textContent = variantConfig.desc;
             packImg.src = variantConfig.img;
             packImgBack.src = variantConfig.imgBack;
-            getCachedEl('zenergy-pack-img-raw').src = variantConfig.imgRaw;
             
-            const labelTitle = getCachedEl('laser-variant-title');
             if (labelTitle) labelTitle.textContent = variantConfig.label;
-            
             if (zenergyLabel) zenergyLabel.textContent = variantConfig.label;
-            getCachedEl('zenergy-price').textContent = variantConfig.price;
+            if (priceEl) priceEl.textContent = variantConfig.price;
 
             descEl.style.opacity = '1';
         }, 120);
@@ -703,38 +671,24 @@ function updateBioUI() {
 }
 
 /**
- * Calculate Current Sphere Epoch Index
- */
-function calculateSphereIndex() {
-    const now = new Date();
-    const epoch = new Date('2012-12-21T00:00:00Z');
-    const daysSinceEpoch = Math.floor((now - epoch) / 86400000);
-    const currentHour = now.getHours();
-    const sphereQuadrant = Math.floor(currentHour / 6);
-    return `${String((daysSinceEpoch * 4) + sphereQuadrant).padStart(4, '0')}`;
-}
-
-/**
  * Pseudo-3D Crystal Sphere Light Engine
- * Maps Heart Pressure (Solar Fire) & Brain Frequency (Lunar Refraction)
+ * Rotates equatorial and meridian rings and syncs telemetry readouts
  */
 function updateCrystalSphereEngine() {
-    const now = new Date();
-    const timestamp = now.getTime();
+    const timestamp = Date.now();
 
-    // 1. HEART / SUN CIRCLE (Blood Pressure Fire & HRV 0.1Hz Resonance)
+    // 1. EQUATORIAL RING ROTATION
     const heartPulseDeg = (timestamp / 25) % 360; 
     const pitchHeart3D = Math.sin(timestamp / 900) * 28; 
 
-    // 2. BRAIN / MOON CIRCLE (Neural Alpha Phase 8Hz-12Hz Refraction)
+    // 2. MERIDIAN RING ROTATION
     const brainAlphaDeg = (timestamp / 15) % 360; 
     const rollBrain3D = Math.cos(timestamp / 1100) * 38; 
 
-    // 3. TARGET DUAL CIRCLE SVG RINGS
+    // 3. TARGET SVG RINGS
     const ringEquator = getCachedEl('sphere-ring-equator');
     const ringMeridian = getCachedEl('sphere-ring-meridian');
 
-    // 4. APPLY PSEUDO-3D PERSPECTIVE TRANSFORMATIONS
     if (ringEquator) {
         ringEquator.style.transform = `rotate(${heartPulseDeg.toFixed(2)}deg) rotateX(${pitchHeart3D.toFixed(2)}deg)`;
     }
@@ -743,21 +697,21 @@ function updateCrystalSphereEngine() {
         ringMeridian.style.transform = `rotate(-${brainAlphaDeg.toFixed(2)}deg) rotateY(${rollBrain3D.toFixed(2)}deg)`;
     }
 
-// 5. UPDATE CENTRAL ALPHANUMERIC DIAL (Heart/Sun · Brain/Moon · Tension Matrix)
-    const heartValue = Math.floor(60 + (Math.sin(timestamp / 800) + 1) * 20); // Simulated Cardiac Pulse BPM (60-100)
-    const brainValue = (8 + (Math.cos(timestamp / 1200) + 1) * 2).toFixed(1); // Simulated Alpha Brainwave Hz (8-12Hz)
+    // 4. CALCULATE METRICS AND UPDATE DIAL
+    const heartValue = Math.floor(60 + (Math.sin(timestamp / 800) + 1) * 20);
+    const brainValue = (8 + (Math.cos(timestamp / 1200) + 1) * 2).toFixed(1);
     const lightMatrixCode = `${heartValue}·α·${brainValue}`;
 
     const elDialPack = getCachedEl('z-dial-pack');
     if (elDialPack) elDialPack.textContent = lightMatrixCode;
 
-    // 6. UPDATE SUB-HEADER TELEMETRY READOUTS
+    // 5. UPDATE SUB-HEADER READOUTS
     const subSetsSolar = getCachedEl('sub-sets-solar');
     const subRepsTension = getCachedEl('sub-reps-tension');
-    if (subSetsSolar) subSetsSolar.textContent = `${(brainValue / 100).toFixed(3)}`;
-    if (subRepsTension) subRepsTension.textContent = `${(12.0 + (heartValue / 10)).toFixed(1)}`;
+    if (subSetsSolar) subSetsSolar.textContent = brainValue;
+    if (subRepsTension) subRepsTension.textContent = (12.0 + (heartValue / 10)).toFixed(1);
 
-    // 7. ACTIVE TELEMETRY BAR UPDATE
+    // 6. ACTIVE TELEMETRY BAR UPDATE
     if (window.activeTelemetryBtnId && TELEMETRY_CONFIG[window.activeTelemetryBtnId]) {
         const telemetryData = getCachedEl('panel-telemetry-data');
         if (telemetryData) {
@@ -836,7 +790,7 @@ function enableTelemetryReveal() {
 
             const meaningConfig = TELEMETRY_CONFIG[btnId].meaning;
             const evaluatedMeaning = typeof meaningConfig === 'function' ? meaningConfig() : meaningConfig;
-            telemetryData.innerHTML = evaluatedMeaning.toUpperCase();
+            if (telemetryData) telemetryData.innerHTML = evaluatedMeaning.toUpperCase();
         });
     });
 }
@@ -844,9 +798,8 @@ function enableTelemetryReveal() {
 // DOM Ready Execution
 document.addEventListener('DOMContentLoaded', () => {
     initZenergy();
-    currentSphereIdx = calculateSphereIndex();
     
-    // High-Frequency Render Loop (~60fps) for Smooth 3D Sphere Rotations
+    // High-Frequency Render Loop (~60fps)
     function animationFrameLoop() {
         updateCrystalSphereEngine();
         requestAnimationFrame(animationFrameLoop);
@@ -862,8 +815,7 @@ cat << 'EOF' > docs/vision.html
 
 EOF
 
-
-# Make set.sh
+# Make set.sh executable
 chmod +x set.sh 
 
 echo "=== Files created successfully ==="

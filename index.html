@@ -22,13 +22,11 @@
     <header class="header-container">
         <div class="top-control-grid">
             
-            <!-- Tension Trigger -->
+            <!-- To be used -->
             <button id="btn-tele-tension" title="Cohesion / Tension" class="btn-tele-glass tele-btn-left">
-                <span id="sub-reps-tension" class="tele-num-val">0.0</span>
-                <span class="tele-unit-label">N</span>
             </button>
 
-            <!-- Logo -->
+            <!-- Center Logo -->
             <button id="btn-tele-dial" title="Biokinetic Telemetry" class="btn-tele-glass tele-btn-center">
                 <svg viewBox="0 0 100 100" class="icon-tele">
                     <polygon points="20,20 80,20 70,35 30,35" />
@@ -39,16 +37,13 @@
 
             <!-- To be used -->
             <button id="btn-tele-hz" title="Resonant Frequency" class="btn-tele-glass tele-btn-right">
-                
             </button>
 
         </div>
 
-        <!-- Telemetry Data Sub-Bar -->
+        <!-- To be used -->
         <div class="sub-header-bar">
-            <span id="panel-telemetry-data" class="telemetry-readout-text">
-                REGENERATIVE BIOKINETIC WAVES
-            </span>
+ 
         </div>
     </header>
 
@@ -57,10 +52,9 @@
         <div id="zenergy-pack-container">
             <div class="pack-viewport">
                 
-                <!-- Progressive Image Stack -->
+                <!-- Progressive Image Stack (Dual Layer) -->
                 <img id="zenergy-pack-img-back" src="img/44mane.png" alt="Zenergy Pack Back" class="img-glow-transition" style="opacity: 0; pointer-events: none; z-index: 0;" />
                 <img id="zenergy-pack-img" src="img/44caps.png" alt="Zenergy Pack Front" class="img-glow-transition" style="opacity: 1; pointer-events: auto; z-index: 10;" />
-                <img id="zenergy-pack-img-raw" src="" alt="Raw Content" class="img-glow-transition" style="opacity: 0; pointer-events: none; z-index: 5;" />
                 
                 <!-- Tactical Mesh and Vector Overlay -->
                 <div class="vector-overlay-layer">
@@ -82,26 +76,22 @@
 
                         <!-- Sandwatch Group Mode -->
                         <g id="sandwatch-group" style="display: none; transform-origin: center; transform: scale(0.85); transition: all 0.5s ease;">
-<g id="sandwatch-lines" style="transform-origin: 200px 200px;">
-    
-    <!-- CIRCLE 1: HORIZONTAL EQUATORIAL RING (HEART / BLOOD FIRE / SUN) -->
-    <g id="sphere-ring-equator" style="transform-origin: 200px 200px; transition: transform 0.1s linear;">
-        <!-- Path 1: SUN (Solar Corona Upper Arc) -->
-        <path d="M 110,200 A 90,45 0 0,1 290,200" stroke="#ffffff" stroke-width="2.1" opacity="0.8" fill="none" stroke-linecap="round" />
-        <!-- Path 2: MOON (Lunar Focal Lower Arc) -->
-        <path d="M 110,200 A 90,45 0 0,0 290,200" stroke="#38bdf8" stroke-width="1.8" opacity="0.5" fill="none" stroke-dasharray="6 3" stroke-linecap="round" />
-    </g>
+                            <g id="sandwatch-lines" style="transform-origin: 200px 200px;">
+                                <!-- CIRCLE 1: HORIZONTAL EQUATORIAL RING (HEART / BLOOD FIRE / SUN) -->
+                                <g id="sphere-ring-equator" style="transform-origin: 200px 200px; transition: transform 0.1s linear;">
+                                    <path d="M 110,200 A 90,45 0 0,1 290,200" stroke="#ffffff" stroke-width="2.1" opacity="0.8" fill="none" stroke-linecap="round" />
+                                    <path d="M 110,200 A 90,45 0 0,0 290,200" stroke="#38bdf8" stroke-width="1.8" opacity="0.5" fill="none" stroke-dasharray="6 3" stroke-linecap="round" />
+                                </g>
 
-    <!-- CIRCLE 2: VERTICAL MERIDIAN RING (BRAIN / LIGHT REFRACTION / GRAVITY) -->
-    <g id="sphere-ring-meridian" style="transform-origin: 200px 200px; transition: transform 0.1s linear;">
-        <!-- Path 3: GRAVITY (Tension Horizon Field - Full Orbital Loop) -->
-        <path d="M 200,110 A 45,90 0 0,1 200,290 M 200,110 A 45,90 0 0,0 200,290" stroke="#ffffff" stroke-width="1.4" opacity="0.45" fill="none" stroke-dasharray="2 3" />
-    </g>
+                                <!-- CIRCLE 2: VERTICAL MERIDIAN RING (BRAIN / LIGHT REFRACTION / GRAVITY) -->
+                                <g id="sphere-ring-meridian" style="transform-origin: 200px 200px; transition: transform 0.1s linear;">
+                                    <path d="M 200,110 A 45,90 0 0,1 200,290 M 200,110 A 45,90 0 0,0 200,290" stroke="#ffffff" stroke-width="1.4" opacity="0.45" fill="none" stroke-dasharray="2 3" />
+                                </g>
 
-    <!-- PHOTONIC RECOVERY CORE (Central Refraction Point) -->
-    <circle cx="200" cy="200" r="3" fill="#38bdf8" opacity="0.7" />
-</g>
-                            <text id="z-dial-pack" x="200" y="210" text-anchor="middle" fill="#ffffff" font-weight="900" font-size="28" letter-spacing="0.4em" font-family="'Orbitron', sans-serif">8UST11</text>
+                                <!-- PHOTONIC RECOVERY CORE -->
+                                <circle cx="200" cy="200" r="3" fill="#38bdf8" opacity="0.7" />
+                            </g>
+                            <text id="z-dial-pack" x="200" y="210" text-anchor="middle" fill="#ffffff" font-weight="900" font-size="28" letter-spacing="0.4em" font-family="'Orbitron', sans-serif"></text>
                         </g>
                         
                         <!-- Curved Bottom Descriptor -->
@@ -122,14 +112,14 @@
         <div class="info-strip-content">
             <span id="zenergy-label">BIORUSH PULSOR FOCUS</span>
             <span style="opacity: 0.7;">|</span>
-            <span id="zenergy-price">$70.000</span>
+            <span id="zenergy-price">$70MIL</span>
         </div>
     </div>
 
-    <!-- Actions & Direct WhatsApp Dispatcher Grid -->
+    <!-- Actions & Dispatcher Grid -->
     <div class="action-controls-grid">
 
-        <!-- Inspect / Reveal Mode -->
+        <!-- Inspect / Reveal Mode (2-State Toggle: Front / Back) -->
         <button id="btn-reveal-bio" title="Inspect" class="btn-tele-glass tele-btn-left">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="icon-stroke">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
@@ -137,7 +127,7 @@
             </svg>
         </button>
 
-        <!-- BUTTON FOR NEXT ACTION STRATEGY -->
+        <!-- Center Action Strategy Trigger -->
         <button title="NEXT-ACTION" class="btn-tele-glass tele-btn-center">
             <svg viewBox="0 0 100 100" class="icon-tele">
                 <polygon points="50,42 58,50 50,58 42,50" />
