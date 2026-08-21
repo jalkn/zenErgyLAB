@@ -28,12 +28,12 @@ cat << 'EOF' > index.html
     <div id="page-bg-overlay"></div>
     <div class="ambient-gradient"></div>
         
-    <!-- Header Block (Native CSS Glass Panel & Biokinetic Telemetry Header) -->
+    <!-- Header Block (Native CSS Glass Panel & Telemetry Header) -->
     <header class="header-container">
         <div class="top-control-grid">
             
-            <!-- To be used -->
-            <button id="btn-tele-tension" title="Cohesion / Tension" class="btn-tele-glass tele-btn-left">
+            <!-- Select BIORUSH -->
+            <button id="btn-tele-tension" title="Select BIORUSH" class="btn-tele-glass tele-btn-left">
             </button>
 
             <!-- Center Logo -->
@@ -45,15 +45,14 @@ cat << 'EOF' > index.html
                 </svg>
             </button>
 
-            <!-- To be used -->
-            <button id="btn-tele-hz" title="Resonant Frequency" class="btn-tele-glass tele-btn-right">
+            <!-- Select SUGARRUSH -->
+            <button id="btn-tele-hz" title="Select SUGARRUSH" class="btn-tele-glass tele-btn-right">
             </button>
 
         </div>
 
-        <!-- To be used -->
+        <!-- Sub-header Bar -->
         <div class="sub-header-bar">
- 
         </div>
     </header>
 
@@ -80,9 +79,6 @@ cat << 'EOF' > index.html
                                 BIORUSH PULSOR FOCUS
                             </textPath>
                         </text>
-                        
-                        <!-- Biokinetic Quantum Waves -->
-                        <g id="wave-quantum-container" class="rotate-neg-90"></g>
 
                         <!-- Sandwatch Group Mode -->
                         <g id="sandwatch-group" style="display: none; transform-origin: center; transform: scale(0.85); transition: all 0.5s ease;">
@@ -276,7 +272,7 @@ body {
     padding-left: 0.5rem;
     padding-right: 0.25rem;
     gap: 0.375rem;
-    justify-content: flex-start;
+    justify-content: flex-end;
 }
 
 .tele-btn-center {
@@ -293,27 +289,7 @@ body {
     padding-right: 0.5rem;
     padding-left: 0.25rem;
     gap: 0.375rem;
-    justify-content: flex-end;
-}
-
-.tele-num-val {
-    font-family: var(--font-tech);
-    color: #ffffff;
-    letter-spacing: 0.1em;
-    font-size: 10px;
-    transition: color 0.3s ease;
-}
-
-.btn-tele-glass:hover .tele-num-val {
-    color: var(--sky-accent);
-}
-
-.tele-unit-label {
-    font-size: 9px;
-    letter-spacing: 0.15em;
-    color: #38bdf8;
-    font-weight: 700;
-    text-transform: uppercase;
+    justify-content: flex-start;
 }
 
 .icon-tele {
@@ -335,15 +311,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.telemetry-readout-text {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 8px;
-    letter-spacing: 0.25em;
-    font-family: var(--font-tech);
-    text-transform: uppercase;
-    transition: color 0.3s ease;
 }
 
 /* Central Visualizer Layer */
@@ -499,12 +466,6 @@ body {
 .footer-container:hover .footer-brand-text {
     color: rgba(125, 211, 252, 0.8);
 }
-
-/* Quantum Wave Helpers */
-.rotate-neg-90 {
-    transform: rotate(-90deg);
-    transform-origin: 200px 200px;
-}
 EOF
 
 # 3. Generate src/scripts/zenergy.js
@@ -519,26 +480,47 @@ const ZENERGY_CATALOG = {
             'FOCUS': { 
                 label: 'BIORUSH PULSOR FOCUS', desc: 'Enfoque y claridad cognitiva', 
                 spec: 'LION’S MANE', cant: '44X500MGRS', price: '$70MIL', id: 'FOCUS45',
-                img: 'img/44caps.png', imgBack: 'img/44mane.png',
-                telemetry: { COL: '24°', FRU: '18°', SEC: '40°', MOL: '98.2%' }
+                img: 'img/44caps.png', imgBack: 'img/44mane.png'
             },
             'ZEN': { 
                 label: 'BIORUSH PULSOR ZEN', desc: 'Silencio mental óptimo', 
                 spec: 'REISHI', cant: '44X500MGRS', price: '$70MIL', id: 'ZEN45',
-                img: 'img/44caps.png', imgBack: 'img/44reishi.png',
-                telemetry: { COL: '22°', FRU: '16°', SEC: '38°', MOL: '97.5' }
+                img: 'img/44caps.png', imgBack: 'img/44reishi.png'
             },
             'STAMINA': { 
                 label: 'BIORUSH PULSOR STAMINA', desc: 'Potencia celular óptima', 
                 spec: 'CORDYCEPS', cant: '44X500MGRS', price: '$70MIL', id: 'CORDY45',
-                img: 'img/44caps.png', imgBack: 'img/44cordy.png',
-                telemetry: { COL: '20°', FRU: '15°', SEC: '42°', MOL: '99.0' }
+                img: 'img/44caps.png', imgBack: 'img/44cordy.png'
             },
             'CORE': { 
                 label: 'BIORUSH PULSOR CORE', desc: 'Respuesta inmune óptima', 
                 spec: 'TURKEY TAIL', cant: '44X500MGRS', price: '$70MIL', id: 'CORE45',
-                img: 'img/44caps.png', imgBack: 'img/44turkey.png',
-                telemetry: { COL: '23°', FRU: '19°', SEC: '40°', MOL: '98.5' }
+                img: 'img/44caps.png', imgBack: 'img/44turkey.png'
+            }
+        }
+    },
+    'SUGARRUSH': {
+        defaultVariant: 'FOCUS',
+        variants: {
+            'FOCUS': { 
+                label: 'SUGARRUSH PULSOR FOCUS', desc: 'Enfoque y claridad cognitiva', 
+                spec: 'LION’S MANE', cant: '44X500MGRS', price: '$70MIL', id: 'FOCUS45',
+                img: 'img/44caps.png', imgBack: 'img/44mane.png'
+            },
+            'ZEN': { 
+                label: 'SUGARRUSH PULSOR ZEN', desc: 'Silencio mental óptimo', 
+                spec: 'REISHI', cant: '44X500MGRS', price: '$70MIL', id: 'ZEN45',
+                img: 'img/44caps.png', imgBack: 'img/44reishi.png'
+            },
+            'STAMINA': { 
+                label: 'SUGARRUSH PULSOR STAMINA', desc: 'Potencia celular óptima', 
+                spec: 'CORDYCEPS', cant: '44X500MGRS', price: '$70MIL', id: 'CORDY45',
+                img: 'img/44caps.png', imgBack: 'img/44cordy.png'
+            },
+            'CORE': { 
+                label: 'SUGARRUSH PULSOR CORE', desc: 'Respuesta inmune óptima', 
+                spec: 'TURKEY TAIL', cant: '44X500MGRS', price: '$70MIL', id: 'CORE45',
+                img: 'img/44caps.png', imgBack: 'img/44turkey.png'
             }
         }
     }
@@ -591,10 +573,25 @@ function applyVisualMode(mode) {
 }
 
 /**
+ * Switch Active Catalog Item
+ * @param {string} itemKey Item key ('BIORUSH' | 'SUGARRUSH')
+ */
+function setCatalogItem(itemKey) {
+    if (!ZENERGY_CATALOG[itemKey]) return;
+    currentBioItem = itemKey;
+    currentBioVariant = ZENERGY_CATALOG[itemKey].defaultVariant;
+    updateBioUI();
+    triggerHaptic(12);
+}
+
+/**
  * Bind UI Controls and Event Listeners
  */
 function bindControls() {
     const btnBio = getCachedEl('btn-reveal-bio');
+    const btnNext = getCachedEl('btn-next-variant');
+    const btnTension = getCachedEl('btn-tele-tension');
+    const btnHz = getCachedEl('btn-tele-hz');
     const modes = ['front', 'back'];
 
     if (btnBio && !btnBio.dataset.bound) {
@@ -606,10 +603,19 @@ function bindControls() {
         });
     }
 
-    const btnNext = getCachedEl('btn-next-variant');
     if (btnNext && !btnNext.dataset.bound) {
         btnNext.dataset.bound = "true";
         btnNext.addEventListener('click', () => rotateBioVariant('next'));
+    }
+
+    if (btnTension && !btnTension.dataset.bound) {
+        btnTension.dataset.bound = "true";
+        btnTension.addEventListener('click', () => setCatalogItem('BIORUSH'));
+    }
+
+    if (btnHz && !btnHz.dataset.bound) {
+        btnHz.dataset.bound = "true";
+        btnHz.addEventListener('click', () => setCatalogItem('SUGARRUSH'));
     }
 }
 
@@ -671,8 +677,8 @@ function updateBioUI() {
 }
 
 /**
- * Pseudo-3D Crystal Sphere Light Engine
- * Rotates equatorial and meridian rings and syncs telemetry readouts
+ * Pseudo-3D Sandwatch Light Engine
+ * Rotates equatorial and meridian rings and syncs dial matrix text
  */
 function updateCrystalSphereEngine() {
     const timestamp = Date.now();
@@ -697,102 +703,13 @@ function updateCrystalSphereEngine() {
         ringMeridian.style.transform = `rotate(-${brainAlphaDeg.toFixed(2)}deg) rotateY(${rollBrain3D.toFixed(2)}deg)`;
     }
 
-    // 4. CALCULATE METRICS AND UPDATE DIAL
+    // 4. CALCULATE METRICS AND UPDATE DIAL TEXT
     const heartValue = Math.floor(60 + (Math.sin(timestamp / 800) + 1) * 20);
     const brainValue = (8 + (Math.cos(timestamp / 1200) + 1) * 2).toFixed(1);
     const lightMatrixCode = `${heartValue}·α·${brainValue}`;
 
     const elDialPack = getCachedEl('z-dial-pack');
     if (elDialPack) elDialPack.textContent = lightMatrixCode;
-
-    // 5. UPDATE SUB-HEADER READOUTS
-    const subSetsSolar = getCachedEl('sub-sets-solar');
-    const subRepsTension = getCachedEl('sub-reps-tension');
-    if (subSetsSolar) subSetsSolar.textContent = brainValue;
-    if (subRepsTension) subRepsTension.textContent = (12.0 + (heartValue / 10)).toFixed(1);
-
-    // 6. ACTIVE TELEMETRY BAR UPDATE
-    if (window.activeTelemetryBtnId && TELEMETRY_CONFIG[window.activeTelemetryBtnId]) {
-        const telemetryData = getCachedEl('panel-telemetry-data');
-        if (telemetryData) {
-            const meaningConfig = TELEMETRY_CONFIG[window.activeTelemetryBtnId].meaning;
-            const evaluatedMeaning = typeof meaningConfig === 'function' ? meaningConfig() : meaningConfig;
-            telemetryData.innerHTML = evaluatedMeaning.toUpperCase();
-        }
-    }
-}
-
-/**
- * Telemetry Panel Label Configuration
- */
-const TELEMETRY_CONFIG = {
-    'btn-tele-hz': {
-        meaning: "RESONANCIA CEREBRAL (ALFA)",
-        targetElId: 'sub-sets-solar'
-    },
-    'btn-tele-dial': {
-        meaning: () => {
-            const dialText = getCachedEl('z-dial-pack')?.textContent || "COHERENCIA";
-            return `COHERENCIA CARDIO-NEURAL: ${dialText}`;
-        },
-        targetElId: null
-    },
-    'btn-tele-tension': {
-        meaning: "PRESIÓN SANGUÍNEA SOLAR",
-        targetElId: 'sub-reps-tension'
-    }
-};
-
-/**
- * Enable Telemetry Interactive Triggers
- */
-function enableTelemetryReveal() {
-    const telemetryData = getCachedEl('panel-telemetry-data');
-    const sandwatchGroup = getCachedEl('sandwatch-group');
-    let lastActiveData = null;
-
-    Object.keys(TELEMETRY_CONFIG).forEach(btnId => {
-        const btn = getCachedEl(btnId);
-        if (!btn || btn.dataset.bound) return;
-        btn.dataset.bound = "true";
-
-        btn.addEventListener('click', () => {
-            triggerHaptic(12);
-
-            if (btnId === 'btn-tele-dial') {
-                if (inspectModeIndex !== 0) {
-                    applyVisualMode('front');
-                    const zenergyLabel = getCachedEl('zenergy-label');
-                    if (zenergyLabel) {
-                        zenergyLabel.textContent = ZENERGY_CATALOG[currentBioItem].variants[currentBioVariant].label;
-                    }
-                }
-
-                if (sandwatchGroup) {
-                    sandwatchGroup.style.display = 'block';
-                }
-            } else {
-                inspectModeIndex = 0; 
-                applyVisualMode('front');
-            }
-
-            if (lastActiveData) {
-                lastActiveData.classList.remove('is-active');
-            }
-
-            const targetDataEl = TELEMETRY_CONFIG[btnId].targetElId ? getCachedEl(TELEMETRY_CONFIG[btnId].targetElId) : null;
-            if (targetDataEl) {
-                targetDataEl.classList.add('is-active');
-                lastActiveData = targetDataEl;
-            }
-
-            window.activeTelemetryBtnId = btnId;
-
-            const meaningConfig = TELEMETRY_CONFIG[btnId].meaning;
-            const evaluatedMeaning = typeof meaningConfig === 'function' ? meaningConfig() : meaningConfig;
-            if (telemetryData) telemetryData.innerHTML = evaluatedMeaning.toUpperCase();
-        });
-    });
 }
 
 // DOM Ready Execution
@@ -806,7 +723,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     requestAnimationFrame(animationFrameLoop);
-    enableTelemetryReveal();
 });
 EOF
 

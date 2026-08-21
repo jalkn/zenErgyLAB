@@ -27,7 +27,6 @@ docs/
 dist/
 .astro
 node_modules/
-src/
 astro.config.mjs
 jako_vault.db
 package-lock.json
@@ -35,16 +34,6 @@ package.json
 vault.html
 z_dial_core.py
 
-
-index2.html
-index3.html
-index4.html
-index5.html
-index6.html
-index7.html
-index8.html
-index9.html
-index10.html
 
 manifesto.html
 manifesto2.html

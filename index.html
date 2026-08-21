@@ -18,12 +18,12 @@
     <div id="page-bg-overlay"></div>
     <div class="ambient-gradient"></div>
         
-    <!-- Header Block (Native CSS Glass Panel & Biokinetic Telemetry Header) -->
+    <!-- Header Block (Native CSS Glass Panel & Telemetry Header) -->
     <header class="header-container">
         <div class="top-control-grid">
             
-            <!-- To be used -->
-            <button id="btn-tele-tension" title="Cohesion / Tension" class="btn-tele-glass tele-btn-left">
+            <!-- Select BIORUSH -->
+            <button id="btn-tele-tension" title="Select BIORUSH" class="btn-tele-glass tele-btn-left">
             </button>
 
             <!-- Center Logo -->
@@ -35,15 +35,14 @@
                 </svg>
             </button>
 
-            <!-- To be used -->
-            <button id="btn-tele-hz" title="Resonant Frequency" class="btn-tele-glass tele-btn-right">
+            <!-- Select SUGARRUSH -->
+            <button id="btn-tele-hz" title="Select SUGARRUSH" class="btn-tele-glass tele-btn-right">
             </button>
 
         </div>
 
-        <!-- To be used -->
+        <!-- Sub-header Bar -->
         <div class="sub-header-bar">
- 
         </div>
     </header>
 
@@ -70,12 +69,9 @@
                                 BIORUSH PULSOR FOCUS
                             </textPath>
                         </text>
-                        
-                        <!-- Biokinetic Quantum Waves -->
-                        <g id="wave-quantum-container" class="rotate-neg-90"></g>
 
-                        <!-- Sandwatch Group Mode -->
-                        <g id="sandwatch-group" style="display: none; transform-origin: center; transform: scale(0.85); transition: all 0.5s ease;">
+                        <!-- Sandwatch Group Mode (Visible por defecto) -->
+                        <g id="sandwatch-group" style="display: block; transform-origin: center; transform: scale(0.85); transition: all 0.5s ease;">
                             <g id="sandwatch-lines" style="transform-origin: 200px 200px;">
                                 <!-- CIRCLE 1: HORIZONTAL EQUATORIAL RING (HEART / BLOOD FIRE / SUN) -->
                                 <g id="sphere-ring-equator" style="transform-origin: 200px 200px; transition: transform 0.1s linear;">
@@ -93,7 +89,7 @@
                             </g>
                             <text id="z-dial-pack" x="200" y="210" text-anchor="middle" fill="#ffffff" font-weight="900" font-size="28" letter-spacing="0.4em" font-family="'Orbitron', sans-serif"></text>
                         </g>
-                        
+
                         <!-- Curved Bottom Descriptor -->
                         <text class="svg-text-desc">
                             <textPath id="zenergy-description" href="#textPath-bottom" startOffset="50%" text-anchor="middle">
