@@ -6,23 +6,23 @@ const ZENERGY_CATALOG = {
         defaultVariant: 'FOCUS',
         variants: {
             'FOCUS': { 
-                label: 'BIORUSH PULSOR FOCUS', desc: 'Enfoque y claridad cognitiva', 
-                spec: 'LION’S MANE', cant: '44X500MGRS', price: '$70MIL', id: 'FOCUS45',
+                label: 'BIORUSH PULSOR FOCUS', desc: 'Focus & Cognitive Clarity', 
+                spec: 'LION’S MANE', cant: '44X500MGRS', price: '$70K COP', id: 'FOCUS45',
                 img: 'img/44caps.png', imgBack: 'img/44mane.png'
             },
             'ZEN': { 
-                label: 'BIORUSH PULSOR ZEN', desc: 'Silencio mental óptimo', 
-                spec: 'REISHI', cant: '44X500MGRS', price: '$70MIL', id: 'ZEN45',
+                label: 'BIORUSH PULSOR ZEN', desc: 'Optimal Mental Silence', 
+                spec: 'REISHI', cant: '44X500MGRS', price: '$70K COP', id: 'ZEN45',
                 img: 'img/44caps.png', imgBack: 'img/44reishi.png'
             },
             'STAMINA': { 
-                label: 'BIORUSH PULSOR STAMINA', desc: 'Potencia celular óptima', 
-                spec: 'CORDYCEPS', cant: '44X500MGRS', price: '$70MIL', id: 'CORDY45',
+                label: 'BIORUSH PULSOR STAMINA', desc: 'Optimal Cellular Power', 
+                spec: 'CORDYCEPS', cant: '44X500MGRS', price: '$70K COP', id: 'CORDY45',
                 img: 'img/44caps.png', imgBack: 'img/44cordy.png'
             },
             'CORE': { 
-                label: 'BIORUSH PULSOR CORE', desc: 'Respuesta inmune óptima', 
-                spec: 'TURKEY TAIL', cant: '44X500MGRS', price: '$70MIL', id: 'CORE45',
+                label: 'BIORUSH PULSOR CORE', desc: 'Optimal Immune Response', 
+                spec: 'TURKEY TAIL', cant: '44X500MGRS', price: '$70K COP', id: 'CORE45',
                 img: 'img/44caps.png', imgBack: 'img/44turkey.png'
             }
         }
@@ -31,23 +31,23 @@ const ZENERGY_CATALOG = {
         defaultVariant: 'FOCUS',
         variants: {
             'FOCUS': { 
-                label: 'SUGARRUSH PULSOR FOCUS', desc: 'Enfoque y claridad cognitiva', 
-                spec: 'LION’S MANE', cant: '44X500MGRS', price: '$70MIL', id: 'FOCUS45',
+                label: 'SUGARRUSH PULSOR FOCUS', desc: 'Focus & Cognitive Clarity', 
+                spec: 'LION’S MANE', cant: '44X500MGRS', price: '$70K COP', id: 'FOCUS45',
                 img: 'img/44caps.png', imgBack: 'img/44mane.png'
             },
             'ZEN': { 
-                label: 'SUGARRUSH PULSOR ZEN', desc: 'Silencio mental óptimo', 
-                spec: 'REISHI', cant: '44X500MGRS', price: '$70MIL', id: 'ZEN45',
+                label: 'SUGARRUSH PULSOR ZEN', desc: 'Optimal Mental Silence', 
+                spec: 'REISHI', cant: '44X500MGRS', price: '$70K COP', id: 'ZEN45',
                 img: 'img/44caps.png', imgBack: 'img/44reishi.png'
             },
             'STAMINA': { 
-                label: 'SUGARRUSH PULSOR STAMINA', desc: 'Potencia celular óptima', 
-                spec: 'CORDYCEPS', cant: '44X500MGRS', price: '$70MIL', id: 'CORDY45',
+                label: 'SUGARRUSH PULSOR STAMINA', desc: 'Optimal Cellular Power', 
+                spec: 'CORDYCEPS', cant: '44X500MGRS', price: '$70K COP', id: 'CORDY45',
                 img: 'img/44caps.png', imgBack: 'img/44cordy.png'
             },
             'CORE': { 
-                label: 'SUGARRUSH PULSOR CORE', desc: 'Respuesta inmune óptima', 
-                spec: 'TURKEY TAIL', cant: '44X500MGRS', price: '$70MIL', id: 'CORE45',
+                label: 'SUGARRUSH PULSOR CORE', desc: 'Optimal Immune Response', 
+                spec: 'TURKEY TAIL', cant: '44X500MGRS', price: '$70K COP', id: 'CORE45',
                 img: 'img/44caps.png', imgBack: 'img/44turkey.png'
             }
         }
@@ -118,8 +118,8 @@ function setCatalogItem(itemKey) {
 function bindControls() {
     const btnBio = getCachedEl('btn-reveal-bio');
     const btnNext = getCachedEl('btn-next-variant');
-    const btnTension = getCachedEl('btn-tele-tension');
-    const btnHz = getCachedEl('btn-tele-hz');
+    const btnBiorush = getCachedEl('btn-tele-biorush');
+    const btnSugar = getCachedEl('btn-tele-sugar');
     const modes = ['front', 'back'];
 
     if (btnBio && !btnBio.dataset.bound) {
@@ -136,14 +136,14 @@ function bindControls() {
         btnNext.addEventListener('click', () => rotateBioVariant('next'));
     }
 
-    if (btnTension && !btnTension.dataset.bound) {
-        btnTension.dataset.bound = "true";
-        btnTension.addEventListener('click', () => setCatalogItem('BIORUSH'));
+    if (btnBiorush && !btnBiorush.dataset.bound) {
+        btnBiorush.dataset.bound = "true";
+        btnBiorush.addEventListener('click', () => setCatalogItem('BIORUSH'));
     }
 
-    if (btnHz && !btnHz.dataset.bound) {
-        btnHz.dataset.bound = "true";
-        btnHz.addEventListener('click', () => setCatalogItem('SUGARRUSH'));
+    if (btnSugar && !btnSugar.dataset.bound) {
+        btnSugar.dataset.bound = "true";
+        btnSugar.addEventListener('click', () => setCatalogItem('SUGARRUSH'));
     }
 }
 

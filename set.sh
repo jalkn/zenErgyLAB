@@ -9,7 +9,7 @@ mkdir -p src/styles src/scripts docs img
 # 1. Generate index.html in the repository root
 cat << 'EOF' > index.html
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <link class="icon" type="image/png" href="img/favicon.png">
@@ -28,35 +28,12 @@ cat << 'EOF' > index.html
     <div id="page-bg-overlay"></div>
     <div class="ambient-gradient"></div>
         
-    <!-- Header Block (Native CSS Glass Panel & Telemetry Header) -->
+    <!-- BLOCK 1: Header Bar (Top Brand Header) -->
     <header class="header-container">
-        <div class="top-control-grid">
-            
-            <!-- Select BIORUSH -->
-            <button id="btn-tele-tension" title="Select BIORUSH" class="btn-tele-glass tele-btn-left">
-            </button>
-
-            <!-- Center Logo -->
-            <button id="btn-tele-dial" title="Biokinetic Telemetry" class="btn-tele-glass tele-btn-center">
-                <svg viewBox="0 0 100 100" class="icon-tele">
-                    <polygon points="20,20 80,20 70,35 30,35" />
-                    <polygon points="50,42 58,50 50,58 42,50" />
-                    <polygon points="30,65 70,65 80,80 20,80" />
-                </svg>
-            </button>
-
-            <!-- Select SUGARRUSH -->
-            <button id="btn-tele-hz" title="Select SUGARRUSH" class="btn-tele-glass tele-btn-right">
-            </button>
-
-        </div>
-
-        <!-- Sub-header Bar -->
-        <div class="sub-header-bar">
-        </div>
+        <span class="header-brand-text">ZENERGY.TECH-LAB</span>
     </header>
 
-    <!-- Central Visualizer & Generator Engine -->
+    <!-- BLOCK 2: Central Visualizer & Generator Engine -->
     <main class="main-visualizer-container">
         <div id="zenergy-pack-container">
             <div class="pack-viewport">
@@ -81,15 +58,15 @@ cat << 'EOF' > index.html
                         </text>
 
                         <!-- Sandwatch Group Mode -->
-                        <g id="sandwatch-group" style="display: none; transform-origin: center; transform: scale(0.85); transition: all 0.5s ease;">
+                        <g id="sandwatch-group" style="display: block; transform-origin: center; transform: scale(0.85); transition: all 0.5s ease;">
                             <g id="sandwatch-lines" style="transform-origin: 200px 200px;">
-                                <!-- CIRCLE 1: HORIZONTAL EQUATORIAL RING (HEART / BLOOD FIRE / SUN) -->
+                                <!-- CIRCLE 1: HORIZONTAL EQUATORIAL RING -->
                                 <g id="sphere-ring-equator" style="transform-origin: 200px 200px; transition: transform 0.1s linear;">
                                     <path d="M 110,200 A 90,45 0 0,1 290,200" stroke="#ffffff" stroke-width="2.1" opacity="0.8" fill="none" stroke-linecap="round" />
                                     <path d="M 110,200 A 90,45 0 0,0 290,200" stroke="#38bdf8" stroke-width="1.8" opacity="0.5" fill="none" stroke-dasharray="6 3" stroke-linecap="round" />
                                 </g>
 
-                                <!-- CIRCLE 2: VERTICAL MERIDIAN RING (BRAIN / LIGHT REFRACTION / GRAVITY) -->
+                                <!-- CIRCLE 2: VERTICAL MERIDIAN RING -->
                                 <g id="sphere-ring-meridian" style="transform-origin: 200px 200px; transition: transform 0.1s linear;">
                                     <path d="M 200,110 A 45,90 0 0,1 200,290 M 200,110 A 45,90 0 0,0 200,290" stroke="#ffffff" stroke-width="1.4" opacity="0.45" fill="none" stroke-dasharray="2 3" />
                                 </g>
@@ -99,11 +76,11 @@ cat << 'EOF' > index.html
                             </g>
                             <text id="z-dial-pack" x="200" y="210" text-anchor="middle" fill="#ffffff" font-weight="900" font-size="28" letter-spacing="0.4em" font-family="'Orbitron', sans-serif"></text>
                         </g>
-                        
+
                         <!-- Curved Bottom Descriptor -->
                         <text class="svg-text-desc">
                             <textPath id="zenergy-description" href="#textPath-bottom" startOffset="50%" text-anchor="middle">
-                                Enfoque y claridad cognitiva
+                                Focus & Cognitive Clarity
                             </textPath>
                         </text>
                     </svg>
@@ -113,20 +90,20 @@ cat << 'EOF' > index.html
         </div>
     </main>
 
-    <!-- Product Label Strip -->
+    <!-- BLOCK 3: Product Label Strip -->
     <div class="info-strip">
         <div class="info-strip-content">
             <span id="zenergy-label">BIORUSH PULSOR FOCUS</span>
             <span style="opacity: 0.7;">|</span>
-            <span id="zenergy-price">$70MIL</span>
+            <span id="zenergy-price">$70K COP</span>
         </div>
     </div>
 
-    <!-- Actions & Dispatcher Grid -->
+    <!-- BLOCK 4: Actions & Dispatcher Grid -->
     <div class="action-controls-grid">
 
-        <!-- Inspect / Reveal Mode (2-State Toggle: Front / Back) -->
-        <button id="btn-reveal-bio" title="Inspect" class="btn-tele-glass tele-btn-left">
+        <!-- Inspect / Reveal Mode -->
+        <button id="btn-reveal-bio" title="Inspect Product" class="btn-tele-glass tele-btn-left">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="icon-stroke">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -134,7 +111,7 @@ cat << 'EOF' > index.html
         </button>
 
         <!-- Center Action Strategy Trigger -->
-        <button title="NEXT-ACTION" class="btn-tele-glass tele-btn-center">
+        <button title="Execute Action" class="btn-tele-glass tele-btn-center">
             <svg viewBox="0 0 100 100" class="icon-tele">
                 <polygon points="50,42 58,50 50,58 42,50" />
                 <polygon points="30,65 70,65 80,80 20,80" />
@@ -150,10 +127,25 @@ cat << 'EOF' > index.html
 
     </div>
 
-    <!-- Footer Credit -->
-    <footer class="footer-container">
-        <span class="footer-brand-text">POWERED BY ZENERGY.TECH-LAB</span>
-    </footer>
+    <!-- BLOCK 5: Brand Catalog Selector Grid -->
+    <div class="action-controls-grid">
+
+        <!-- Select BIORUSH Line -->
+        <button id="btn-tele-biorush" title="Select BIORUSH" class="btn-tele-glass tele-btn-left">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" class="icon-stroke">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+            </svg>
+        </button>
+
+        <!-- Select SUGARRUSH Line -->
+        <button id="btn-tele-sugar" title="Select SUGARRUSH" class="btn-tele-glass tele-btn-right">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" class="icon-stroke">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 0 0 6-15 9 9 0 0 0-12 0 9 9 0 0 0 6 15z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18" />
+            </svg>
+        </button>
+
+    </div>
 
     <!-- Core Engine Script -->
     <script src="src/scripts/zenergy.js"></script>
@@ -227,93 +219,36 @@ body {
     transition: opacity 0.5s ease-in-out; 
 }
 
-/* Header Control Bar */
+/* STYLE 1: Header Container (Top Brand Header) */
 .header-container {
+    height: 50px;
     width: 100%;
     flex-shrink: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.3), transparent);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     z-index: 50;
-    background-color: rgba(8, 47, 73, 0.2);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 4px 30px var(--sky-glow);
-    display: flex;
-    flex-direction: column;
-}
-
-.top-control-grid {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    width: 100%;
     padding: 0 1rem;
-    height: 3rem;
-}
-
-.btn-tele-glass {
-    background-color: transparent;
-    border: none;
-    display: flex;
-    align-items: center;
-    color: #ffffff;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-tele-glass:hover {
-    background-color: var(--sky-glow);
-}
-
-.btn-tele-glass:active {
-    transform: scale(0.95);
-}
-
-.tele-btn-left {
-    height: 100%;
-    padding-left: 0.5rem;
-    padding-right: 0.25rem;
-    gap: 0.375rem;
-    justify-content: flex-end;
-}
-
-.tele-btn-center {
-    width: 3rem;
-    height: 3rem;
-    flex-shrink: 0;
-    justify-content: center;
-    border-left: 1px solid var(--sky-border);
-    border-right: 1px solid var(--sky-border);
-}
-
-.tele-btn-right {
-    height: 100%;
-    padding-right: 0.5rem;
-    padding-left: 0.25rem;
-    gap: 0.375rem;
-    justify-content: flex-start;
-}
-
-.icon-tele {
-    width: 1rem;
-    height: 1rem;
-    fill: #ffffff;
-    pointer-events: none;
-    transition: fill 0.3s ease;
-}
-
-.btn-tele-glass:hover .icon-tele {
-    fill: var(--sky-accent);
-}
-
-.sub-header-bar {
-    width: 100%;
-    border-top: 1px solid var(--sky-border);
-    padding: 0.375rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Central Visualizer Layer */
+.header-brand-text {
+    font-size: 6px;
+    letter-spacing: 0.35em;
+    font-family: var(--font-tech);
+    font-weight: 700;
+    color: rgba(186, 230, 253, 0.4);
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.header-container:hover .header-brand-text {
+    color: rgba(125, 211, 252, 0.8);
+}
+
+/* STYLE 2: Main Visualizer Container */
 .main-visualizer-container {
     flex: 1;
     width: 100%;
@@ -389,7 +324,7 @@ body {
     transition: all 0.5s ease;
 }
 
-/* Product Spec Strip & Controls Grid */
+/* STYLE 3: Product Label Strip */
 .info-strip {
     display: flex;
     align-items: center;
@@ -418,6 +353,7 @@ body {
     text-overflow: ellipsis;
 }
 
+/* STYLE 4: Action Controls Grid & Buttons */
 .action-controls-grid {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -426,6 +362,61 @@ body {
     width: 100%;
     padding: 0 1rem;
     height: 3rem;
+}
+
+.btn-tele-glass {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-tele-glass:hover {
+    background-color: var(--sky-glow);
+}
+
+.btn-tele-glass:active {
+    transform: scale(0.95);
+}
+
+.tele-btn-left {
+    height: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.25rem;
+    gap: 0.375rem;
+    justify-content: flex-end;
+}
+
+.tele-btn-center {
+    width: 3rem;
+    height: 3rem;
+    flex-shrink: 0;
+    justify-content: center;
+    border-left: 1px solid var(--sky-border);
+    border-right: 1px solid var(--sky-border);
+}
+
+.tele-btn-right {
+    height: 100%;
+    padding-right: 0.5rem;
+    padding-left: 0.25rem;
+    gap: 0.375rem;
+    justify-content: flex-start;
+}
+
+.icon-tele {
+    width: 1rem;
+    height: 1rem;
+    fill: #ffffff;
+    pointer-events: none;
+    transition: fill 0.3s ease;
+}
+
+.btn-tele-glass:hover .icon-tele {
+    fill: var(--sky-accent);
 }
 
 .icon-stroke {
@@ -437,34 +428,6 @@ body {
 
 .btn-tele-glass:hover .icon-stroke {
     stroke: var(--sky-accent);
-}
-
-/* Footer */
-.footer-container {
-    height: 50px;
-    width: 100%;
-    flex-shrink: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.3), transparent);
-    backdrop-filter: blur(4px);
-    z-index: 50;
-    padding: 0 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.footer-brand-text {
-    font-size: 6px;
-    letter-spacing: 0.35em;
-    font-family: var(--font-tech);
-    font-weight: 700;
-    color: rgba(186, 230, 253, 0.4);
-    text-transform: uppercase;
-    transition: color 0.3s ease;
-}
-
-.footer-container:hover .footer-brand-text {
-    color: rgba(125, 211, 252, 0.8);
 }
 EOF
 
@@ -478,23 +441,23 @@ const ZENERGY_CATALOG = {
         defaultVariant: 'FOCUS',
         variants: {
             'FOCUS': { 
-                label: 'BIORUSH PULSOR FOCUS', desc: 'Enfoque y claridad cognitiva', 
-                spec: 'LION’S MANE', cant: '44X500MGRS', price: '$70MIL', id: 'FOCUS45',
+                label: 'BIORUSH PULSOR FOCUS', desc: 'Focus & Cognitive Clarity', 
+                spec: 'LION’S MANE', cant: '44X500MGRS', price: '$70K COP', id: 'FOCUS45',
                 img: 'img/44caps.png', imgBack: 'img/44mane.png'
             },
             'ZEN': { 
-                label: 'BIORUSH PULSOR ZEN', desc: 'Silencio mental óptimo', 
-                spec: 'REISHI', cant: '44X500MGRS', price: '$70MIL', id: 'ZEN45',
+                label: 'BIORUSH PULSOR ZEN', desc: 'Optimal Mental Silence', 
+                spec: 'REISHI', cant: '44X500MGRS', price: '$70K COP', id: 'ZEN45',
                 img: 'img/44caps.png', imgBack: 'img/44reishi.png'
             },
             'STAMINA': { 
-                label: 'BIORUSH PULSOR STAMINA', desc: 'Potencia celular óptima', 
-                spec: 'CORDYCEPS', cant: '44X500MGRS', price: '$70MIL', id: 'CORDY45',
+                label: 'BIORUSH PULSOR STAMINA', desc: 'Optimal Cellular Power', 
+                spec: 'CORDYCEPS', cant: '44X500MGRS', price: '$70K COP', id: 'CORDY45',
                 img: 'img/44caps.png', imgBack: 'img/44cordy.png'
             },
             'CORE': { 
-                label: 'BIORUSH PULSOR CORE', desc: 'Respuesta inmune óptima', 
-                spec: 'TURKEY TAIL', cant: '44X500MGRS', price: '$70MIL', id: 'CORE45',
+                label: 'BIORUSH PULSOR CORE', desc: 'Optimal Immune Response', 
+                spec: 'TURKEY TAIL', cant: '44X500MGRS', price: '$70K COP', id: 'CORE45',
                 img: 'img/44caps.png', imgBack: 'img/44turkey.png'
             }
         }
@@ -503,23 +466,23 @@ const ZENERGY_CATALOG = {
         defaultVariant: 'FOCUS',
         variants: {
             'FOCUS': { 
-                label: 'SUGARRUSH PULSOR FOCUS', desc: 'Enfoque y claridad cognitiva', 
-                spec: 'LION’S MANE', cant: '44X500MGRS', price: '$70MIL', id: 'FOCUS45',
+                label: 'SUGARRUSH PULSOR FOCUS', desc: 'Focus & Cognitive Clarity', 
+                spec: 'LION’S MANE', cant: '44X500MGRS', price: '$70K COP', id: 'FOCUS45',
                 img: 'img/44caps.png', imgBack: 'img/44mane.png'
             },
             'ZEN': { 
-                label: 'SUGARRUSH PULSOR ZEN', desc: 'Silencio mental óptimo', 
-                spec: 'REISHI', cant: '44X500MGRS', price: '$70MIL', id: 'ZEN45',
+                label: 'SUGARRUSH PULSOR ZEN', desc: 'Optimal Mental Silence', 
+                spec: 'REISHI', cant: '44X500MGRS', price: '$70K COP', id: 'ZEN45',
                 img: 'img/44caps.png', imgBack: 'img/44reishi.png'
             },
             'STAMINA': { 
-                label: 'SUGARRUSH PULSOR STAMINA', desc: 'Potencia celular óptima', 
-                spec: 'CORDYCEPS', cant: '44X500MGRS', price: '$70MIL', id: 'CORDY45',
+                label: 'SUGARRUSH PULSOR STAMINA', desc: 'Optimal Cellular Power', 
+                spec: 'CORDYCEPS', cant: '44X500MGRS', price: '$70K COP', id: 'CORDY45',
                 img: 'img/44caps.png', imgBack: 'img/44cordy.png'
             },
             'CORE': { 
-                label: 'SUGARRUSH PULSOR CORE', desc: 'Respuesta inmune óptima', 
-                spec: 'TURKEY TAIL', cant: '44X500MGRS', price: '$70MIL', id: 'CORE45',
+                label: 'SUGARRUSH PULSOR CORE', desc: 'Optimal Immune Response', 
+                spec: 'TURKEY TAIL', cant: '44X500MGRS', price: '$70K COP', id: 'CORE45',
                 img: 'img/44caps.png', imgBack: 'img/44turkey.png'
             }
         }
@@ -590,8 +553,8 @@ function setCatalogItem(itemKey) {
 function bindControls() {
     const btnBio = getCachedEl('btn-reveal-bio');
     const btnNext = getCachedEl('btn-next-variant');
-    const btnTension = getCachedEl('btn-tele-tension');
-    const btnHz = getCachedEl('btn-tele-hz');
+    const btnBiorush = getCachedEl('btn-tele-biorush');
+    const btnSugar = getCachedEl('btn-tele-sugar');
     const modes = ['front', 'back'];
 
     if (btnBio && !btnBio.dataset.bound) {
@@ -608,14 +571,14 @@ function bindControls() {
         btnNext.addEventListener('click', () => rotateBioVariant('next'));
     }
 
-    if (btnTension && !btnTension.dataset.bound) {
-        btnTension.dataset.bound = "true";
-        btnTension.addEventListener('click', () => setCatalogItem('BIORUSH'));
+    if (btnBiorush && !btnBiorush.dataset.bound) {
+        btnBiorush.dataset.bound = "true";
+        btnBiorush.addEventListener('click', () => setCatalogItem('BIORUSH'));
     }
 
-    if (btnHz && !btnHz.dataset.bound) {
-        btnHz.dataset.bound = "true";
-        btnHz.addEventListener('click', () => setCatalogItem('SUGARRUSH'));
+    if (btnSugar && !btnSugar.dataset.bound) {
+        btnSugar.dataset.bound = "true";
+        btnSugar.addEventListener('click', () => setCatalogItem('SUGARRUSH'));
     }
 }
 
@@ -661,13 +624,17 @@ function updateBioUI() {
 
     if (descEl && packImg && packImgBack) {
         descEl.style.opacity = '0';
+        if (labelTitle) labelTitle.style.opacity = '0';
         
         setTimeout(() => {
             descEl.textContent = variantConfig.desc;
             packImg.src = variantConfig.img;
             packImgBack.src = variantConfig.imgBack;
             
-            if (labelTitle) labelTitle.textContent = variantConfig.label;
+            if (labelTitle) {
+                labelTitle.textContent = variantConfig.label;
+                labelTitle.style.opacity = '1';
+            }
             if (zenergyLabel) zenergyLabel.textContent = variantConfig.label;
             if (priceEl) priceEl.textContent = variantConfig.price;
 
@@ -726,9 +693,123 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 EOF
 
-# 4. Generate docs/vision.html
-cat << 'EOF' > docs/vision.html
+# 4. Generate docs/roadmap.html
+cat << 'EOF' > docs/roadmap.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link class="icon" type="image/png" href="../img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ZENERGY.TECH-LAB - Roadmap</title>
+    
+    <!-- External Fonts (Typography Engine) -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="../src/styles/global.css">
+    
+    <style>
+        .roadmap-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            width: 100%;
+            max-width: 480px;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-align: left;
+        }
+        .roadmap-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 0.8rem;
+            border: 1px solid var(--sky-border);
+            background: rgba(8, 47, 73, 0.2);
+            backdrop-filter: blur(8px);
+        }
+        .roadmap-item input[type="checkbox"] {
+            accent-color: var(--sky-accent);
+            width: 14px;
+            height: 14px;
+        }
+    </style>
+</head>
+<body>
 
+    <!-- Ambient Overlays -->
+    <div id="page-bg-overlay"></div>
+    <div class="ambient-gradient"></div>
+        
+    <!-- BLOCK 1: Header Bar -->
+    <header class="header-container">
+        <span class="header-brand-text">DEVELOPMENT ROADMAP & LOG</span>
+    </header>
+
+    <!-- BLOCK 2: Central Visualizer Container (Roadmap Checklist Content) -->
+    <main class="main-visualizer-container">
+        <ul class="roadmap-list">
+            <li class="roadmap-item">
+                <input type="checkbox" checked disabled>
+                <span>Full English translation across codebase, comments, and assets.</span>
+            </li>
+            <li class="roadmap-item">
+                <input type="checkbox" checked disabled>
+                <span>Move brand selector controls to dedicated bottom action grid.</span>
+            </li>
+            <li class="roadmap-item">
+                <input type="checkbox" checked disabled>
+                <span>Remove legacy top header controls and clean CSS/JS redundancy.</span>
+            </li>
+            <li class="roadmap-item">
+                <input type="checkbox" checked disabled>
+                <span>Relocate brand credit overlay to top header container.</span>
+            </li>
+            <li class="roadmap-item">
+                <input type="checkbox" checked disabled>
+                <span>Unify layout CSS into 4 distinct block styles across 5 elements.</span>
+            </li>
+            <li class="roadmap-item">
+                <input type="checkbox" checked disabled>
+                <span>Add native minimal SVG icons for brand selector buttons.</span>
+            </li>
+        </ul>
+    </main>
+
+    <!-- BLOCK 3: Product Label Strip -->
+    <div class="info-strip">
+        <div class="info-strip-content">
+            <span>ROADMAP MONITOR</span>
+            <span style="opacity: 0.7;">|</span>
+            <span>v1.0.4</span>
+        </div>
+    </div>
+
+    <!-- BLOCK 4: Actions Grid -->
+    <div class="action-controls-grid">
+        <button onclick="window.location.href='../index.html'" title="Return to Visualizer" class="btn-tele-glass tele-btn-left">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" class="icon-stroke">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+        </button>
+        <button title="System Status" class="btn-tele-glass tele-btn-center">
+            <svg viewBox="0 0 100 100" class="icon-tele">
+                <polygon points="50,42 58,50 50,58 42,50" />
+            </svg>
+        </button>
+        <button class="btn-tele-glass tele-btn-right" style="opacity: 0.3; pointer-events: none;"></button>
+    </div>
+
+    <!-- BLOCK 5: Duplicate Grid Placeholder -->
+    <div class="action-controls-grid">
+        <button class="btn-tele-glass tele-btn-left" style="opacity: 0.3; pointer-events: none;"></button>
+        <button class="btn-tele-glass tele-btn-right" style="opacity: 0.3; pointer-events: none;"></button>
+    </div>
+
+</body>
+</html>
 EOF
 
 # Make set.sh executable

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <link class="icon" type="image/png" href="img/favicon.png">
@@ -18,35 +18,12 @@
     <div id="page-bg-overlay"></div>
     <div class="ambient-gradient"></div>
         
-    <!-- Header Block (Native CSS Glass Panel & Telemetry Header) -->
+    <!-- BLOCK 1: Header Bar (Top Brand Header) -->
     <header class="header-container">
-        <div class="top-control-grid">
-            
-            <!-- Select BIORUSH -->
-            <button id="btn-tele-tension" title="Select BIORUSH" class="btn-tele-glass tele-btn-left">
-            </button>
-
-            <!-- Center Logo -->
-            <button id="btn-tele-dial" title="Biokinetic Telemetry" class="btn-tele-glass tele-btn-center">
-                <svg viewBox="0 0 100 100" class="icon-tele">
-                    <polygon points="20,20 80,20 70,35 30,35" />
-                    <polygon points="50,42 58,50 50,58 42,50" />
-                    <polygon points="30,65 70,65 80,80 20,80" />
-                </svg>
-            </button>
-
-            <!-- Select SUGARRUSH -->
-            <button id="btn-tele-hz" title="Select SUGARRUSH" class="btn-tele-glass tele-btn-right">
-            </button>
-
-        </div>
-
-        <!-- Sub-header Bar -->
-        <div class="sub-header-bar">
-        </div>
+        <span class="header-brand-text">POWERED BY ZENERGY.TECH-LAB</span>
     </header>
 
-    <!-- Central Visualizer & Generator Engine -->
+    <!-- BLOCK 2: Central Visualizer & Generator Engine -->
     <main class="main-visualizer-container">
         <div id="zenergy-pack-container">
             <div class="pack-viewport">
@@ -70,16 +47,16 @@
                             </textPath>
                         </text>
 
-                        <!-- Sandwatch Group Mode (Visible por defecto) -->
+                        <!-- Sandwatch Group Mode -->
                         <g id="sandwatch-group" style="display: block; transform-origin: center; transform: scale(0.85); transition: all 0.5s ease;">
                             <g id="sandwatch-lines" style="transform-origin: 200px 200px;">
-                                <!-- CIRCLE 1: HORIZONTAL EQUATORIAL RING (HEART / BLOOD FIRE / SUN) -->
+                                <!-- CIRCLE 1: HORIZONTAL EQUATORIAL RING -->
                                 <g id="sphere-ring-equator" style="transform-origin: 200px 200px; transition: transform 0.1s linear;">
                                     <path d="M 110,200 A 90,45 0 0,1 290,200" stroke="#ffffff" stroke-width="2.1" opacity="0.8" fill="none" stroke-linecap="round" />
                                     <path d="M 110,200 A 90,45 0 0,0 290,200" stroke="#38bdf8" stroke-width="1.8" opacity="0.5" fill="none" stroke-dasharray="6 3" stroke-linecap="round" />
                                 </g>
 
-                                <!-- CIRCLE 2: VERTICAL MERIDIAN RING (BRAIN / LIGHT REFRACTION / GRAVITY) -->
+                                <!-- CIRCLE 2: VERTICAL MERIDIAN RING -->
                                 <g id="sphere-ring-meridian" style="transform-origin: 200px 200px; transition: transform 0.1s linear;">
                                     <path d="M 200,110 A 45,90 0 0,1 200,290 M 200,110 A 45,90 0 0,0 200,290" stroke="#ffffff" stroke-width="1.4" opacity="0.45" fill="none" stroke-dasharray="2 3" />
                                 </g>
@@ -93,7 +70,7 @@
                         <!-- Curved Bottom Descriptor -->
                         <text class="svg-text-desc">
                             <textPath id="zenergy-description" href="#textPath-bottom" startOffset="50%" text-anchor="middle">
-                                Enfoque y claridad cognitiva
+                                Focus & Cognitive Clarity
                             </textPath>
                         </text>
                     </svg>
@@ -103,20 +80,20 @@
         </div>
     </main>
 
-    <!-- Product Label Strip -->
+    <!-- BLOCK 3: Product Label Strip -->
     <div class="info-strip">
         <div class="info-strip-content">
             <span id="zenergy-label">BIORUSH PULSOR FOCUS</span>
             <span style="opacity: 0.7;">|</span>
-            <span id="zenergy-price">$70MIL</span>
+            <span id="zenergy-price">$70K COP</span>
         </div>
     </div>
 
-    <!-- Actions & Dispatcher Grid -->
+    <!-- BLOCK 4: Actions & Dispatcher Grid -->
     <div class="action-controls-grid">
 
-        <!-- Inspect / Reveal Mode (2-State Toggle: Front / Back) -->
-        <button id="btn-reveal-bio" title="Inspect" class="btn-tele-glass tele-btn-left">
+        <!-- Inspect / Reveal Mode -->
+        <button id="btn-reveal-bio" title="Inspect Product" class="btn-tele-glass tele-btn-left">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="icon-stroke">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -124,7 +101,7 @@
         </button>
 
         <!-- Center Action Strategy Trigger -->
-        <button title="NEXT-ACTION" class="btn-tele-glass tele-btn-center">
+        <button title="Execute Action" class="btn-tele-glass tele-btn-center">
             <svg viewBox="0 0 100 100" class="icon-tele">
                 <polygon points="50,42 58,50 50,58 42,50" />
                 <polygon points="30,65 70,65 80,80 20,80" />
@@ -140,10 +117,25 @@
 
     </div>
 
-    <!-- Footer Credit -->
-    <footer class="footer-container">
-        <span class="footer-brand-text">POWERED BY ZENERGY.TECH-LAB</span>
-    </footer>
+    <!-- BLOCK 5: Brand Catalog Selector Grid -->
+    <div class="action-controls-grid">
+
+        <!-- Select BIORUSH Line -->
+        <button id="btn-tele-biorush" title="Select BIORUSH" class="btn-tele-glass tele-btn-left">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" class="icon-stroke">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+            </svg>
+        </button>
+
+        <!-- Select SUGARRUSH Line -->
+        <button id="btn-tele-sugar" title="Select SUGARRUSH" class="btn-tele-glass tele-btn-right">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" class="icon-stroke">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 0 0 6-15 9 9 0 0 0-12 0 9 9 0 0 0 6 15z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18" />
+            </svg>
+        </button>
+
+    </div>
 
     <!-- Core Engine Script -->
     <script src="src/scripts/zenergy.js"></script>
