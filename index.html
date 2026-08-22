@@ -20,7 +20,7 @@
         
     <!-- BLOCK 1: Header Bar (Top Brand Header) -->
     <header class="header-container">
-        <span class="header-brand-text">POWERED BY ZENERGY.TECH-LAB</span>
+        <span class="header-brand-text">ZENERGY.TECH-LAB</span>
     </header>
 
     <!-- BLOCK 2: Central Visualizer & Generator Engine -->
@@ -28,9 +28,9 @@
         <div id="zenergy-pack-container">
             <div class="pack-viewport">
                 
-                <!-- Progressive Image Stack (Dual Layer) -->
-                <img id="zenergy-pack-img-back" src="img/44mane.png" alt="Zenergy Pack Back" class="img-glow-transition" style="opacity: 0; pointer-events: none; z-index: 0;" />
-                <img id="zenergy-pack-img" src="img/44caps.png" alt="Zenergy Pack Front" class="img-glow-transition" style="opacity: 1; pointer-events: auto; z-index: 10;" />
+                <!-- Progressive Image Stack (Dual Layer - Both Visible, Back Scaled Down) -->
+                <img id="zenergy-pack-img" src="img/44caps.png" alt="Zenergy Pack Front" class="img-glow-transition" style="pointer-events: auto; z-index: 10;" />
+                <img id="zenergy-pack-img-back" src="img/44mane.png" alt="Zenergy Pack Back" class="img-glow-transition pack-img-back" style="pointer-events: none; z-index: 5;" />
                 
                 <!-- Tactical Mesh and Vector Overlay -->
                 <div class="vector-overlay-layer">
@@ -47,25 +47,7 @@
                             </textPath>
                         </text>
 
-                        <!-- Sandwatch Group Mode -->
-                        <g id="sandwatch-group" style="display: block; transform-origin: center; transform: scale(0.85); transition: all 0.5s ease;">
-                            <g id="sandwatch-lines" style="transform-origin: 200px 200px;">
-                                <!-- CIRCLE 1: HORIZONTAL EQUATORIAL RING -->
-                                <g id="sphere-ring-equator" style="transform-origin: 200px 200px; transition: transform 0.1s linear;">
-                                    <path d="M 110,200 A 90,45 0 0,1 290,200" stroke="#ffffff" stroke-width="2.1" opacity="0.8" fill="none" stroke-linecap="round" />
-                                    <path d="M 110,200 A 90,45 0 0,0 290,200" stroke="#38bdf8" stroke-width="1.8" opacity="0.5" fill="none" stroke-dasharray="6 3" stroke-linecap="round" />
-                                </g>
 
-                                <!-- CIRCLE 2: VERTICAL MERIDIAN RING -->
-                                <g id="sphere-ring-meridian" style="transform-origin: 200px 200px; transition: transform 0.1s linear;">
-                                    <path d="M 200,110 A 45,90 0 0,1 200,290 M 200,110 A 45,90 0 0,0 200,290" stroke="#ffffff" stroke-width="1.4" opacity="0.45" fill="none" stroke-dasharray="2 3" />
-                                </g>
-
-                                <!-- PHOTONIC RECOVERY CORE -->
-                                <circle cx="200" cy="200" r="3" fill="#38bdf8" opacity="0.7" />
-                            </g>
-                            <text id="z-dial-pack" x="200" y="210" text-anchor="middle" fill="#ffffff" font-weight="900" font-size="28" letter-spacing="0.4em" font-family="'Orbitron', sans-serif"></text>
-                        </g>
 
                         <!-- Curved Bottom Descriptor -->
                         <text class="svg-text-desc">
@@ -89,53 +71,26 @@
         </div>
     </div>
 
-    <!-- BLOCK 4: Actions & Dispatcher Grid -->
-    <div class="action-controls-grid">
-
-        <!-- Inspect / Reveal Mode -->
-        <button id="btn-reveal-bio" title="Inspect Product" class="btn-tele-glass tele-btn-left">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="icon-stroke">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+    <!-- BLOCK 4: Actions & Viewport Controls Grid -->
+    <div class="action-controls-grid single-action">
+        <!-- Next Variant Button -->
+        <button id="btn-next-variant" title="Next Variant" class="btn-tele-glass">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" class="icon-stroke">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
             </svg>
         </button>
-
-        <!-- Center Action Strategy Trigger -->
-        <button title="Execute Action" class="btn-tele-glass tele-btn-center">
-            <svg viewBox="0 0 100 100" class="icon-tele">
-                <polygon points="50,42 58,50 50,58 42,50" />
-                <polygon points="30,65 70,65 80,80 20,80" />
-            </svg>
-        </button>
-
-        <!-- Next Product Variant -->
-        <button id="btn-next-variant" title="Next Variant" class="btn-tele-glass tele-btn-right">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" class="icon-stroke">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-            </svg>
-        </button>
-
     </div>
 
-    <!-- BLOCK 5: Brand Catalog Selector Grid -->
-    <div class="action-controls-grid">
-
-        <!-- Select BIORUSH Line -->
-        <button id="btn-tele-biorush" title="Select BIORUSH" class="btn-tele-glass tele-btn-left">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" class="icon-stroke">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-            </svg>
+    <!-- BLOCK 5: Footer Bar (Catalog Selector with Pure Text Branding) -->
+    <footer class="header-container footer-container">
+        <button id="btn-tele-biorush" title="Select BIORUSH" class="btn-brand-text">
+            <span class="header-brand-text">BIORUSH</span>
         </button>
-
-        <!-- Select SUGARRUSH Line -->
-        <button id="btn-tele-sugar" title="Select SUGARRUSH" class="btn-tele-glass tele-btn-right">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" class="icon-stroke">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 0 0 6-15 9 9 0 0 0-12 0 9 9 0 0 0 6 15z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18" />
-            </svg>
+        <span class="header-brand-text divider">//</span>
+        <button id="btn-tele-sugar" title="Select SUGARRUSH" class="btn-brand-text">
+            <span class="header-brand-text">SUGARRUSH</span>
         </button>
-
-    </div>
+    </footer>
 
     <!-- Core Engine Script -->
     <script src="src/scripts/zenergy.js"></script>
