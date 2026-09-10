@@ -70,7 +70,7 @@
         }
 
         /* =========================================================================
-           BLOQUE 1: HEADER & LOGO COMPACTO (ANIMACIÓN CONTINUA)
+           BLOQUE 1: HEADER & LOGO ANIMADO (zenergy.lab)
            ========================================================================= */
         .header-container {
             width: 100%;
@@ -96,6 +96,8 @@
             text-transform: lowercase;
             letter-spacing: -0.5px;
             line-height: 1;
+            display: inline-block;
+            animation: brandGlitchPulse 4s ease-in-out infinite alternate;
         }
 
         .zen-part { color: #00D2FE; font-weight: 700; }
@@ -113,7 +115,7 @@
         }
 
         /* =========================================================================
-           BLOQUE 2: ÁREA VISUAL CENTRAL (HONGO CON RESPIRACIÓN Y ROTACIÓN)
+           BLOQUE 2: ÁREA VISUAL CENTRAL
            ========================================================================= */
         .main-visualizer-container {
             flex: 1;
@@ -228,14 +230,17 @@
             margin-top: 0.2rem;
         }
 
-        /* BLOQUE 4: CONTROLES */
+        /* =========================================================================
+           BLOQUE 4: BARRA DE CONTROLES (MULTIBOTÓN)
+           ========================================================================= */
         .action-controls-grid {
             display: flex;
             justify-content: space-between;
             border-top: 1px solid var(--sky-border);
             align-items: center;
             width: 100%;
-            padding: 0.8rem 1.2rem;
+            padding: 0.8rem 0.8rem;
+            gap: 0.4rem;
             background: rgba(2, 6, 23, 0.85);
             backdrop-filter: blur(8px);
         }
@@ -244,15 +249,18 @@
             background-color: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--sky-border);
             border-radius: 6px;
-            padding: 0.5rem 0.9rem;
+            padding: 0.5rem 0.6rem;
             display: flex;
             align-items: center;
+            justify-content: center;
             color: #ffffff;
             cursor: pointer;
             font-family: var(--font-tech);
-            font-size: 0.65rem;
-            gap: 0.4rem;
+            font-size: 0.6rem;
+            gap: 0.3rem;
             transition: all 0.2s ease;
+            flex: 1;
+            white-space: nowrap;
         }
 
         .btn-tele-glass:hover {
@@ -260,20 +268,36 @@
             border-color: var(--sky-accent);
         }
 
-        .btn-capture {
+        .btn-capture-img {
+            background-color: rgba(14, 165, 233, 0.15);
+            color: var(--sky-accent);
+            border: 1px solid var(--sky-border);
+        }
+
+        .btn-capture-img:hover {
+            background-color: rgba(0, 210, 254, 0.25);
+            border-color: var(--sky-accent);
+        }
+
+        .btn-capture-video {
             background-color: var(--sky-accent);
             color: #020617;
             font-weight: 700;
             border: 1px solid var(--sky-accent);
         }
 
+        .btn-capture-video:hover {
+            background-color: #ffffff;
+            color: #020617;
+        }
+
         .icon-stroke { 
-            width: 0.9rem; 
-            height: 0.9rem; 
+            width: 0.85rem; 
+            height: 0.85rem; 
             stroke: currentColor; 
         }
 
-        /* KEYFRAMES DE ANIMACIÓN FLUIDA EN VIDEO */
+        /* KEYFRAMES */
         @keyframes headerAppear {
             0% { opacity: 0; transform: translateY(-10px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -282,6 +306,12 @@
         @keyframes headerGlowPulse {
             0% { border-bottom-color: rgba(14, 165, 233, 0.25); box-shadow: 0 4px 12px rgba(0, 210, 254, 0.08); }
             100% { border-bottom-color: rgba(0, 210, 254, 0.85); box-shadow: 0 4px 28px rgba(0, 210, 254, 0.35); }
+        }
+
+        @keyframes brandGlitchPulse {
+            0%, 100% { filter: drop-shadow(0 0 2px rgba(0, 210, 254, 0.3)); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 10px rgba(0, 210, 254, 0.8)); transform: scale(1.02); }
+            80% { filter: drop-shadow(0 0 4px rgba(0, 210, 254, 0.5)); }
         }
 
         @keyframes glowPulseBg {
@@ -321,13 +351,16 @@
 
         <div class="action-controls-grid" id="ui-controls">
             <button id="btn-next-variant" class="btn-tele-glass">
-                <span>SIGUIENTE DÍA</span>
+                <span>DÍA</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" class="icon-stroke">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
             </button>
-            <button id="btn-capture" class="btn-tele-glass btn-capture">
-                <span>CAPTURAR MP4 (10S)</span>
+            <button id="btn-capture-img" class="btn-tele-glass btn-capture-img">
+                <span>PNG</span>
+            </button>
+            <button id="btn-capture-video" class="btn-tele-glass btn-capture-video">
+                <span>MP4 (10S)</span>
             </button>
         </div>
     </div>
@@ -385,7 +418,8 @@
             benefit: document.getElementById('script-benefit'),
             cta: document.getElementById('script-cta'),
             btnNext: document.getElementById('btn-next-variant'),
-            btnCapture: document.getElementById('btn-capture'),
+            btnCaptureImg: document.getElementById('btn-capture-img'),
+            btnCaptureVideo: document.getElementById('btn-capture-video'),
             controlsUI: document.getElementById('ui-controls'),
             studioCanvas: document.getElementById('studio-canvas')
         };
@@ -416,10 +450,30 @@
             }
         }
 
+        // CAPTURA DE IMAGEN ESTÁTICA PNG
+        function captureImagePNG() {
+            dom.controlsUI.style.display = 'none';
+            html2canvas(dom.studioCanvas, {
+                backgroundColor: '#020617',
+                scale: 2,
+                useCORS: true
+            }).then(canvas => {
+                const currentDay = ZENERGY_SCRIPT_CATALOG[currentDayIndex].dia;
+                const link = document.createElement('a');
+                link.download = `zenergy-${currentDay}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                dom.controlsUI.style.display = 'flex';
+            }).catch(err => {
+                console.error(err);
+                dom.controlsUI.style.display = 'flex';
+            });
+        }
+
+        // CAPTURA DE VIDEO DINÁMICO MP4/WEBM 10S
         async function record10sVideoMP4() {
             dom.controlsUI.style.display = 'none';
 
-            // Ocultar elementos del script para iniciar secuencia animada
             [dom.badge, dom.hook, dom.benefit, dom.cta].forEach(el => el.classList.remove('script-element-visible'));
 
             const renderCanvas = document.createElement('canvas');
@@ -459,7 +513,6 @@
                 dom.controlsUI.style.display = 'flex';
             };
 
-            // Bucle de captura continua a 30 FPS sin alterar animaciones CSS nativas
             let isRecording = true;
             const renderLoop = async () => {
                 if (!isRecording) return;
@@ -480,7 +533,6 @@
             mediaRecorder.start();
             renderLoop();
 
-            // Timeline de aparición de texto
             setTimeout(() => dom.badge.classList.add('script-element-visible'), 300);
             setTimeout(() => dom.hook.classList.add('script-element-visible'), 1200);
             setTimeout(() => dom.benefit.classList.add('script-element-visible'), 3800);
@@ -494,7 +546,8 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             if (dom.btnNext) dom.btnNext.addEventListener('click', rotateDay);
-            if (dom.btnCapture) dom.btnCapture.addEventListener('click', record10sVideoMP4);
+            if (dom.btnCaptureImg) dom.btnCaptureImg.addEventListener('click', captureImagePNG);
+            if (dom.btnCaptureVideo) dom.btnCaptureVideo.addEventListener('click', record10sVideoMP4);
             updateStudioUI();
         });
     </script>
