@@ -13,6 +13,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <style>
+        /* =========================================================================
+           1. CORE DESIGN SYSTEM & NATIVE CSS VARIABLES
+           ========================================================================= */
         :root {
             --bg-base: #020617;
             --sky-glow: rgba(0, 210, 254, 0.15);
@@ -24,6 +27,7 @@
             --font-body: 'Plus Jakarta Sans', sans-serif;
         }
 
+        /* Reset & Base Layout */
         *, ::before, ::after { 
             box-sizing: border-box; 
             margin: 0;
@@ -46,6 +50,12 @@
             -webkit-font-smoothing: antialiased;
         } 
 
+        ::selection {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Contenedor Principal Canvas 9:16 Studio */
         #studio-canvas {
             width: 100%;
             max-width: 420px;
@@ -59,7 +69,7 @@
             overflow: hidden;
         }
 
-        /* BLOQUE 1: HEADER COMPACTO */
+        /* BLOQUE 1: HEADER & LOGO COMPACTO */
         .header-container {
             width: 100%;
             flex-shrink: 0;
@@ -94,9 +104,10 @@
             text-transform: uppercase;
             margin-top: 0.35rem;
             opacity: 0.85;
+            white-space: nowrap;
         }
 
-        /* BLOQUE 2: HONGO + GLOW + BADGE */
+        /* BLOQUE 2: ÁREA VISUAL CENTRAL */
         .main-visualizer-container {
             flex: 1;
             width: 100%;
@@ -106,20 +117,6 @@
             justify-content: center;
             position: relative;
             padding: 0.5rem 1rem;
-        }
-
-        .shroom-badge {
-            font-family: var(--font-tech);
-            font-size: 9px;
-            letter-spacing: 0.2em;
-            color: var(--sky-accent);
-            background: rgba(0, 210, 254, 0.08);
-            border: 1px solid var(--sky-border);
-            padding: 4px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            margin-bottom: 0.8rem;
-            backdrop-filter: blur(4px);
         }
 
         #zenergy-pack-container {
@@ -153,15 +150,48 @@
             transition: opacity 0.3s ease-in-out;
         }
 
-        /* BLOQUE 3: SCRIPT */
+        /* BLOQUE 3: SCRIPT ANIMADO (DESPLAZADO 10PX HACIA ARRIBA) */
         .block-script {
             width: 100%;
             padding: 0 1.8rem;
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.5rem;
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 0.5rem;
             text-align: center;
+            min-height: 140px;
+            justify-content: center;
+            transform: translateY(-10px); /* Subido 10px para desapegarlo del footer */
+        }
+
+        .shroom-badge {
+            font-family: var(--font-tech);
+            font-size: 8px;
+            letter-spacing: 0.2em;
+            color: var(--sky-accent);
+            background: rgba(0, 210, 254, 0.08);
+            border: 1px solid var(--sky-border);
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+            backdrop-filter: blur(4px);
+            display: inline-block;
+        }
+
+        .shroom-badge,
+        .script-hook, 
+        .script-benefit, 
+        .script-cta {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .script-element-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
 
         .script-hook {
@@ -212,6 +242,12 @@
             font-family: var(--font-tech);
             font-size: 0.65rem;
             gap: 0.4rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-tele-glass:hover {
+            background-color: var(--sky-glow);
+            border-color: var(--sky-accent);
         }
 
         .btn-capture {
@@ -221,7 +257,11 @@
             border: 1px solid var(--sky-accent);
         }
 
-        .icon-stroke { width: 0.9rem; height: 0.9rem; stroke: currentColor; }
+        .icon-stroke { 
+            width: 0.9rem; 
+            height: 0.9rem; 
+            stroke: currentColor; 
+        }
     </style>
 </head>
 <body>
@@ -235,13 +275,13 @@
         </header>
 
         <main class="main-visualizer-container">
-            <div class="shroom-badge" id="shroom-badge">LION'S MANE // BIOPULSOR FOCUS</div>
             <div id="zenergy-pack-container">
                 <img id="zenergy-pack-img-back" src="img/44mane.png" alt="Biopulsor Hongo" />
             </div>
         </main>
 
         <div class="block-script">
+            <div class="shroom-badge" id="shroom-badge">LION'S MANE // BIOPULSOR FOCUS</div>
             <p class="script-hook" id="script-hook">Cargando script...</p>
             <p class="script-benefit" id="script-benefit">...</p>
             <p class="script-cta" id="script-cta">...</p>
@@ -255,7 +295,7 @@
                 </svg>
             </button>
             <button id="btn-capture" class="btn-tele-glass btn-capture">
-                <span>CAPTURAR</span>
+                <span>CAPTURAR MP4 (10S)</span>
             </button>
         </div>
     </div>
@@ -327,38 +367,105 @@
             const currentItem = ZENERGY_SCRIPT_CATALOG[currentDayIndex];
             if (dom.packImgBack) {
                 dom.packImgBack.style.opacity = '0';
+                
+                [dom.badge, dom.hook, dom.benefit, dom.cta].forEach(el => el.classList.remove('script-element-visible'));
+
                 setTimeout(() => {
                     dom.packImgBack.src = currentItem.imgBack;
                     if (dom.badge) dom.badge.textContent = currentItem.badge;
                     if (dom.hook) dom.hook.textContent = currentItem.gancho;
                     if (dom.benefit) dom.benefit.textContent = currentItem.beneficio;
                     if (dom.cta) dom.cta.textContent = currentItem.llamado_a_la_accion;
+                    
                     dom.packImgBack.style.opacity = '1';
+                    
+                    [dom.badge, dom.hook, dom.benefit, dom.cta].forEach(el => el.classList.add('script-element-visible'));
                 }, 120);
             }
         }
 
-        function downloadCanvasPNG() {
+        async function record10sVideoMP4() {
             dom.controlsUI.style.display = 'none';
-            html2canvas(dom.studioCanvas, {
-                backgroundColor: '#020617',
-                scale: 2,
-                useCORS: true
-            }).then(canvas => {
+
+            [dom.badge, dom.hook, dom.benefit, dom.cta].forEach(el => el.classList.remove('script-element-visible'));
+
+            const renderCanvas = document.createElement('canvas');
+            renderCanvas.width = 840;
+            renderCanvas.height = 1492;
+            const ctx = renderCanvas.getContext('2d');
+
+            const stream = renderCanvas.captureStream(30);
+            
+            // Preferencia por contenedor MP4 / H264
+            let mimeType = 'video/mp4;codecs=avc1.42E01E';
+            if (!MediaRecorder.isTypeSupported(mimeType)) {
+                mimeType = 'video/mp4';
+                if (!MediaRecorder.isTypeSupported(mimeType)) {
+                    mimeType = 'video/webm';
+                }
+            }
+
+            const mediaRecorder = new MediaRecorder(stream, { mimeType });
+            const chunks = [];
+
+            mediaRecorder.ondataavailable = (e) => {
+                if (e.data.size > 0) chunks.push(e.data);
+            };
+
+            mediaRecorder.onstop = () => {
+                const isMp4 = mimeType.includes('mp4');
+                const blob = new Blob(chunks, { type: isMp4 ? 'video/mp4' : 'video/webm' });
+                const url = URL.createObjectURL(blob);
                 const currentDay = ZENERGY_SCRIPT_CATALOG[currentDayIndex].dia;
-                const link = document.createElement('a');
-                link.download = `zenergy-${currentDay}.png`;
-                link.href = canvas.toDataURL('image/png');
-                link.click();
+                
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `zenergy-${currentDay}-10s.${isMp4 ? 'mp4' : 'webm'}`;
+                a.click();
+                URL.revokeObjectURL(url);
+
                 dom.controlsUI.style.display = 'flex';
-            }).catch(err => {
-                dom.controlsUI.style.display = 'flex';
-            });
+                dom.packImgBack.style.transform = 'none';
+            };
+
+            let isRecording = true;
+            const renderLoop = async () => {
+                if (!isRecording) return;
+                try {
+                    const canvasFrame = await html2canvas(dom.studioCanvas, {
+                        backgroundColor: '#020617',
+                        scale: 2,
+                        useCORS: true
+                    });
+                    ctx.clearRect(0, 0, renderCanvas.width, renderCanvas.height);
+                    ctx.drawImage(canvasFrame, 0, 0);
+                } catch (e) {
+                    console.error(e);
+                }
+                if (isRecording) requestAnimationFrame(renderLoop);
+            };
+
+            dom.packImgBack.style.transition = 'transform 10s linear';
+            dom.packImgBack.style.transform = 'scale(1.08)';
+
+            mediaRecorder.start();
+            renderLoop();
+
+            // Timeline animación secuencial en 10 segundos
+            setTimeout(() => dom.badge.classList.add('script-element-visible'), 300);
+            setTimeout(() => dom.hook.classList.add('script-element-visible'), 1200);
+            setTimeout(() => dom.benefit.classList.add('script-element-visible'), 3800);
+            setTimeout(() => dom.cta.classList.add('script-element-visible'), 6800);
+
+            setTimeout(() => {
+                isRecording = false;
+                mediaRecorder.stop();
+            }, 10000);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             if (dom.btnNext) dom.btnNext.addEventListener('click', rotateDay);
-            if (dom.btnCapture) dom.btnCapture.addEventListener('click', downloadCanvasPNG);
+            if (dom.btnCapture) dom.btnCapture.addEventListener('click', record10sVideoMP4);
             updateStudioUI();
         });
     </script>
