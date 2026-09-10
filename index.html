@@ -69,19 +69,24 @@
             overflow: hidden;
         }
 
-        /* BLOQUE 1: HEADER & LOGO COMPACTO */
+        /* =========================================================================
+           BLOQUE 1: HEADER & LOGO COMPACTO (ANIMACIÓN CONTINUA)
+           ========================================================================= */
         .header-container {
             width: 100%;
             flex-shrink: 0;
             z-index: 50;
             background: rgba(2, 6, 23, 0.4);
             backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--sky-border);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 0.8rem 0 0.6rem 0;
+            animation: headerAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+                       headerGlowPulse 3s ease-in-out infinite alternate 0.8s;
         }
 
         .brand-text-html {
@@ -107,7 +112,9 @@
             white-space: nowrap;
         }
 
-        /* BLOQUE 2: ÁREA VISUAL CENTRAL */
+        /* =========================================================================
+           BLOQUE 2: ÁREA VISUAL CENTRAL (HONGO CON RESPIRACIÓN Y ROTACIÓN)
+           ========================================================================= */
         .main-visualizer-container {
             flex: 1;
             width: 100%;
@@ -138,6 +145,7 @@
             border-radius: 50%;
             z-index: 1;
             pointer-events: none;
+            animation: glowPulseBg 4s ease-in-out infinite alternate;
         }
 
         #zenergy-pack-img-back {
@@ -146,11 +154,13 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 18px rgba(0, 210, 254, 0.25)) contrast(105%);
+            animation: floatBreath 4s ease-in-out infinite alternate;
             transition: opacity 0.3s ease-in-out;
         }
 
-        /* BLOQUE 3: SCRIPT ANIMADO (DESPLAZADO 10PX HACIA ARRIBA) */
+        /* =========================================================================
+           BLOQUE 3: SCRIPT ANIMADO PASO A PASO
+           ========================================================================= */
         .block-script {
             width: 100%;
             padding: 0 1.8rem;
@@ -162,7 +172,7 @@
             text-align: center;
             min-height: 140px;
             justify-content: center;
-            transform: translateY(-10px); /* Subido 10px para desapegarlo del footer */
+            transform: translateY(-10px);
         }
 
         .shroom-badge {
@@ -262,6 +272,28 @@
             height: 0.9rem; 
             stroke: currentColor; 
         }
+
+        /* KEYFRAMES DE ANIMACIÓN FLUIDA EN VIDEO */
+        @keyframes headerAppear {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes headerGlowPulse {
+            0% { border-bottom-color: rgba(14, 165, 233, 0.25); box-shadow: 0 4px 12px rgba(0, 210, 254, 0.08); }
+            100% { border-bottom-color: rgba(0, 210, 254, 0.85); box-shadow: 0 4px 28px rgba(0, 210, 254, 0.35); }
+        }
+
+        @keyframes glowPulseBg {
+            0% { transform: scale(0.92); opacity: 0.6; }
+            100% { transform: scale(1.12); opacity: 1; }
+        }
+
+        @keyframes floatBreath {
+            0% { transform: translateY(0px) scale(1) rotate(0deg); filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 15px rgba(0, 210, 254, 0.25)) contrast(105%); }
+            50% { transform: translateY(-7px) scale(1.04) rotate(1deg); filter: drop-shadow(0 28px 38px rgba(0, 0, 0, 0.98)) drop-shadow(0 0 25px rgba(0, 210, 254, 0.4)) contrast(108%); }
+            100% { transform: translateY(-3px) scale(1.02) rotate(-1deg); filter: drop-shadow(0 22px 32px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 18px rgba(0, 210, 254, 0.3)) contrast(106%); }
+        }
     </style>
 </head>
 <body>
@@ -306,41 +338,41 @@
                 dia: "lunes",
                 badge: "LION'S MANE // BIOPULSOR FOCUS",
                 imgBack: "img/44mane.png",
-                gancho: "¿Te ha pasado que intentas concentrarte y tu mente no para?",
-                beneficio: "La Melena de León te ayuda a recuperar la atención plena y mejorar el enfoque mental de forma natural.",
-                llamado_a_la_accion: "¿Quieres saber cómo incluirla en tu rutina?"
+                gancho: "¿Mente dispersa y sin enfoque?",
+                beneficio: "La Melena de León potencia tu claridad mental y concentración de forma natural.",
+                llamado_a_la_accion: "¿Listo para enfocar tu día?"
             },
             {
                 dia: "martes",
                 badge: "REISHI // BIOPULSOR ZEN",
                 imgBack: "img/44reishi.png",
-                gancho: "¿Sientes el estrés del día a día y te cuesta descansar?",
-                beneficio: "El Reishi te brinda esa calma y ayuda a recuperar el equilibrio para que duermas profundo.",
-                llamado_a_la_accion: "¿Te gustaría conocer más sobre este hongo?"
+                gancho: "¿Estrés alto y mal descanso?",
+                beneficio: "El Reishi equilibra tu sistema nervioso y promueve un sueño reparador.",
+                llamado_a_la_accion: "¿Quieres recuperar tu calma?"
             },
             {
                 dia: "miercoles",
                 badge: "CORDYCEPS // BIOPULSOR STAMINA",
                 imgBack: "img/44cordy.png",
-                gancho: "¿Tu energía cae a mitad de tarde?",
-                beneficio: "El Cordyceps es tu aliado natural para aumentar la resistencia y mantenerte activo durante todo el día.",
-                llamado_a_la_accion: "¿Quieres darle un impulso a tus días?"
+                gancho: "¿Fatiga a mitad de tarde?",
+                beneficio: "El Cordyceps eleva tu energía celular y resistencia física sin estimulantes.",
+                llamado_a_la_accion: "¿Recargas tu vitalidad hoy?"
             },
             {
                 dia: "jueves",
                 badge: "TURKEY TAIL // BIOPULSOR CORE",
                 imgBack: "img/44turkey.png",
-                gancho: "¿Buscas fortalecer tus defensas de forma natural?",
-                beneficio: "La Cola de Pavo es rica en antioxidantes que cuidan tu salud desde adentro.",
-                llamado_a_la_accion: "¿Te gustaría saber cómo incorporarla?"
+                gancho: "¿Buscas blindar tus defensas?",
+                beneficio: "La Cola de Pavo aporta antioxidantes clave para proteger tu microbiota e inmunidad.",
+                llamado_a_la_accion: "¿Fortalecemos tu salud hoy?"
             },
             {
                 dia: "viernes",
                 badge: "TREMELLA // BIOPULSOR GLOW",
                 imgBack: "img/44treme.png",
-                gancho: "¿Sientes tu piel seca y sin vida?",
-                beneficio: "La Tremella le devuelve la hidratación profunda desde el interior y potencia su luminosidad.",
-                llamado_a_la_accion: "¿Te gustaría lucir una piel más radiante?"
+                gancho: "¿Piel opaca y deshidratada?",
+                beneficio: "La Tremella retiene la humedad profunda y regenera el brillo natural de tu piel.",
+                llamado_a_la_accion: "¿Activas tu brillo natural?"
             }
         ];
 
@@ -387,6 +419,7 @@
         async function record10sVideoMP4() {
             dom.controlsUI.style.display = 'none';
 
+            // Ocultar elementos del script para iniciar secuencia animada
             [dom.badge, dom.hook, dom.benefit, dom.cta].forEach(el => el.classList.remove('script-element-visible'));
 
             const renderCanvas = document.createElement('canvas');
@@ -396,7 +429,6 @@
 
             const stream = renderCanvas.captureStream(30);
             
-            // Preferencia por contenedor MP4 / H264
             let mimeType = 'video/mp4;codecs=avc1.42E01E';
             if (!MediaRecorder.isTypeSupported(mimeType)) {
                 mimeType = 'video/mp4';
@@ -425,9 +457,9 @@
                 URL.revokeObjectURL(url);
 
                 dom.controlsUI.style.display = 'flex';
-                dom.packImgBack.style.transform = 'none';
             };
 
+            // Bucle de captura continua a 30 FPS sin alterar animaciones CSS nativas
             let isRecording = true;
             const renderLoop = async () => {
                 if (!isRecording) return;
@@ -445,13 +477,10 @@
                 if (isRecording) requestAnimationFrame(renderLoop);
             };
 
-            dom.packImgBack.style.transition = 'transform 10s linear';
-            dom.packImgBack.style.transform = 'scale(1.08)';
-
             mediaRecorder.start();
             renderLoop();
 
-            // Timeline animación secuencial en 10 segundos
+            // Timeline de aparición de texto
             setTimeout(() => dom.badge.classList.add('script-element-visible'), 300);
             setTimeout(() => dom.hook.classList.add('script-element-visible'), 1200);
             setTimeout(() => dom.benefit.classList.add('script-element-visible'), 3800);
